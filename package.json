@@ -1,22 +1,45 @@
 {
-  "name": "tch_v2",
+  "name": "technofest",
+  "author": {
+    "name": "moez-rd",
+    "email": "slow9ie@gmail.com",
+    "url": "https://github.com/moez-rd"
+  },
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "analyze": "ANALYZE=true next build",
+    "eslint": "next lint --fix --dir src",
+    "prettier": "prettier -l \"src/**/*.{js,jsx,md,ts,tsx}\"",
+    "lint": "yarn prettier && yarn eslint"
   },
   "dependencies": {
-    "@types/node": "20.4.4",
-    "@types/react": "18.2.15",
-    "@types/react-dom": "18.2.7",
-    "eslint": "8.45.0",
-    "eslint-config-next": "13.4.12",
     "next": "13.4.12",
     "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "typescript": "5.1.6"
+    "react-dom": "18.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.4.4",
+    "@types/react": "^18.2.15",
+    "@types/react-dom": "^18.2.7",
+    "@typescript-eslint/eslint-plugin": "^6.1.0",
+    "@typescript-eslint/parser": "^6.1.0",
+    "eslint": "^8.45.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-typescript": "^17.1.0",
+    "eslint-config-mantine": "^2.0.0",
+    "eslint-config-next": "^13.4.12",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-prettier": "^5.0.0",
+    "eslint-plugin-react": "^7.33.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-simple-import-sort": "^10.0.0",
+    "prettier": "^3.0.0",
+    "typescript": "^5.1.6"
   }
 }
