@@ -50,7 +50,6 @@ export const useLogin = () => {
           signIn(provider, {
             email: form.values.email,
             password: form.values.password,
-            callbackUrl: 'http://127.0.0.1:3000/u/dashboard',
           }).then(() => {
             setLoading(false);
           });
