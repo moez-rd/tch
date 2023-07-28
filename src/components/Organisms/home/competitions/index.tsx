@@ -50,7 +50,7 @@ export default function HomeCompetitions(props: Props) {
               }}
             >
               <Image src={competition.image || ''} alt={competition.name} width={180} height={180} />
-              <Title order={3} color={theme.colors.gray[1]}>
+              <Title order={3} color={theme.colors.gray[7]}>
                 {competition.name}
               </Title>
               <Paragraph color="dimmed" sx={{ flexGrow: 1 }}>
