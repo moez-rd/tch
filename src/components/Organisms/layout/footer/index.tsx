@@ -41,8 +41,8 @@ export default function LayoutFooter(props: Props) {
           </Text>
         </Stack>
         <Grid grow>
-          {technofest.footerLinks.map((footerLink) => (
-            <Grid.Col span={4}>
+          {technofest.footerLinks.map((footerLink, key) => (
+            <Grid.Col key={key} span={4}>
               <div className={classes.wrapper} key={footerLink.title}>
                 <Text className={classes.title}>{footerLink.title}</Text>
                 {footerLink.links.map((link, index) => (

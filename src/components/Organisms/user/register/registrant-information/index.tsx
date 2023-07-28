@@ -64,7 +64,7 @@ export default function RegisterRegistrantInformation(props: Props) {
           <Text>Nama Tim</Text>
           <Group spacing="xs">
             <TextInput placeholder="Nama tim" {...updateTeamNameForm.getInputProps('name')} disabled={!editTeamName} />
-            {!confirmed &&
+            {!Number(confirmed) &&
               (editTeamName ? (
                 <>
                   <ActionIcon color="red" onClick={() => setEditTeamName(false)}>
@@ -106,7 +106,7 @@ export default function RegisterRegistrantInformation(props: Props) {
               </Group>
             </Stack>
             <Group sx={{ alignSelf: 'end' }}>
-              {!confirmed && currentUser?.id !== user.id && currentUser?.event_registrant?.role === EventRegistrationRole.LEADER && (
+              {!Number(confirmed) && currentUser?.id !== user.id && currentUser?.event_registrant?.role === EventRegistrationRole.LEADER && (
                 <Button px="md" compact radius="xl" variant="light" color="red" onClick={(event) => removeUser(event, user)}>
                   Hapus
                 </Button>
@@ -115,7 +115,7 @@ export default function RegisterRegistrantInformation(props: Props) {
           </Group>
         </CardListItem>
       ))}
-      {!confirmed && currentUser?.event_registrant?.role === EventRegistrationRole.LEADER && users.length < max_participants && (
+      {!Number(confirmed) && currentUser?.event_registrant?.role === EventRegistrationRole.LEADER && users.length < max_participants && (
         <CardListItem>
           {!addUserFormOpened ? (
             <UnstyledButton onClick={() => setAddUserFormOpened(true)} w="100%" sx={{ display: 'flex', justifyContent: 'center' }}>
@@ -149,7 +149,7 @@ export default function RegisterRegistrantInformation(props: Props) {
 
       {max_participants > 1 && (
         <Group mt="lg">
-          {!confirmed ? (
+          {!Number(confirmed) ? (
             <Button onClick={(event) => confirmTeam(event)}>Konfirmasi tim</Button>
           ) : (
             <Badge size="lg" color="gray">

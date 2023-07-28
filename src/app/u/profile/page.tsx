@@ -32,8 +32,6 @@ export default async function ProfilePage(props: Props) {
     return provider.provider !== ProviderType.CREDENTIALS;
   }) as Provider[];
 
-  console.log(hasCredentialsProvider);
-
   return (
     <BaseContainer>
       <ProfileHeader />

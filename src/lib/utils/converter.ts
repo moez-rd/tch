@@ -11,8 +11,8 @@ export function seminarCastRoleToLabel(number: number): string | undefined {
   return undefined;
 }
 
-export function paymentStatusToLabel(number: number): string | undefined {
-  switch (number) {
+export function paymentStatusToLabel(number: number | string): string | undefined {
+  switch (Number(number)) {
     case PaymentStatus.NOT_CONFIRMED:
       return 'Belum dikonfirmasi';
     case PaymentStatus.ACCEPTED:
@@ -24,8 +24,8 @@ export function paymentStatusToLabel(number: number): string | undefined {
   return undefined;
 }
 
-export function paymentStatusToColor(number: number): string | undefined {
-  switch (number) {
+export function paymentStatusToColor(number: number | string): string | undefined {
+  switch (Number(number)) {
     case PaymentStatus.NOT_CONFIRMED:
       return 'gray';
     case PaymentStatus.ACCEPTED:
