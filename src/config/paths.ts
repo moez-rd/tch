@@ -13,7 +13,7 @@ export const paths = {
 
   userProfile: '/u/profile',
 
-  eventDetail: '/e/:eventCodename',
+  eventDetail: '/events/:eventCodename',
 
   faqs: '/faqs',
 };

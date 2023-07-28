@@ -39,7 +39,7 @@ export default async function DashboardPage(props: Props) {
   ) as EventRegistration[];
 
   return (
-    <BaseContainer>
+    <BaseContainer spacing="small">
       <DashboardHeader user={user.data!} />
       {!user.data?.user_profile && <DashboardAlert />}
       <DashboardCompetitions registrations={competitionRegistrations} />

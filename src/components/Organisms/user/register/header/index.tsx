@@ -1,8 +1,7 @@
 'use client';
 
-import { Stack, Title } from '@mantine/core';
-
 import Container from '@/components/Atoms/container';
+import PageHeader from '@/components/Molecules/page-header';
 
 interface Props {}
 
@@ -18,11 +17,7 @@ export default function RegisterHeader(props: Props) {
 
   return (
     <Container small>
-      <Stack align="center" mt="8rem">
-        <Title order={1} color="gray.8">
-          Pendaftaran
-        </Title>
-      </Stack>
+      <PageHeader>Pendaftaran</PageHeader>
     </Container>
   );
 }
