@@ -1,5 +1,13 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-interface Props {}
+'use client';
+
+import { Accordion } from '@mantine/core';
+
+import Container from '@/components/Atoms/container';
+import type { Faq } from '@/types/technofest';
+
+interface Props {
+  faqs: Faq[];
+}
 
 /**
  * React component
@@ -9,7 +17,18 @@ interface Props {}
  */
 export default function FaqFaqList(props: Props) {
   // eslint-disable-next-line no-empty-pattern
-  const {} = props;
+  const { faqs } = props;
 
-  return <div />;
+  return (
+    <Container small>
+      <Accordion>
+        {faqs.map((faq) => (
+          <Accordion.Item value={faq.question}>
+            <Accordion.Control>{faq.question}</Accordion.Control>
+            <Accordion.Panel>{faq.answer}</Accordion.Panel>
+          </Accordion.Item>
+        ))}
+      </Accordion>
+    </Container>
+  );
 }

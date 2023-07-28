@@ -1,7 +1,7 @@
 import { PaymentStatus, SeminarCastRole } from '@/enums/constants';
 
-export function seminarCastRoleToLabel(number: number): string | undefined {
-  switch (number) {
+export function seminarCastRoleToLabel(number: number | string): string | undefined {
+  switch (Number(number)) {
     case SeminarCastRole.SPEAKER:
       return 'Pembicara';
     case SeminarCastRole.MODERATOR:

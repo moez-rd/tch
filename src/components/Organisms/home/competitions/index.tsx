@@ -32,7 +32,7 @@ export default function HomeCompetitions(props: Props) {
     <Container>
       <SectionHeader title="Kompetisi" subtitle="Kompetisi" position="center" />
 
-      <Card radius="md" mt="2rem" p="md">
+      <Card radius="md" mt="2rem" p="md" withBorder>
         <SimpleGrid
           breakpoints={[
             { minWidth: 'xs', cols: 1 },

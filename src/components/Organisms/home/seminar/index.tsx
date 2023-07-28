@@ -32,7 +32,7 @@ export default function HomeSeminar(props: Props) {
     <Container>
       <SectionHeader title="Seminar" subtitle="Seminar" position="center" />
 
-      <Card radius="md" mt="2rem" p="md">
+      <Card radius="md" mt="2rem" p="md" withBorder>
         <SimpleGrid
           breakpoints={[
             { minWidth: 'xs', cols: 1 },

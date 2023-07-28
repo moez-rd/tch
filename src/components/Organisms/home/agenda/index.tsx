@@ -25,11 +25,11 @@ export default function HomeAgenda(props: Props) {
   return (
     <Box bg="dark.5" py="6rem">
       <Container>
-        <Grid>
+        <Grid gutter="2rem">
           <Grid.Col span={3}>
             <SectionHeader title="Agenda" subtitle="Agenda" position="start" dark />
           </Grid.Col>
-          <Grid.Col span="auto">
+          <Grid.Col span="content">
             <Timeline active={100} color="green" bulletSize={26}>
               {milestones.map((milestone) => (
                 <TimelineItem bullet={<IconStack size={16} spacing={0} key={milestone.id} />}>
