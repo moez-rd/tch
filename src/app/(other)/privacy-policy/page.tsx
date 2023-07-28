@@ -1,6 +1,6 @@
 import BaseContainer from '@/components/Atoms/base-container';
-import FaqFaqList from '@/components/Organisms/faq/faq-list';
-import FaqHeader from '@/components/Organisms/faq/header';
+import PrivacyPolicyBody from '@/components/Organisms/privacy-policy/body';
+import PrivacyPolicyHeader from '@/components/Organisms/privacy-policy/header';
 
 /**
  * Props interface
@@ -20,8 +20,8 @@ export default async function FaqsPage(props: Props) {
 
   return (
     <BaseContainer>
-      <FaqHeader />
-      <FaqFaqList />
+      <PrivacyPolicyHeader />
+      <PrivacyPolicyBody />
     </BaseContainer>
   );
 }
