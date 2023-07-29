@@ -93,7 +93,7 @@ export default function RegisterRegistrantInformation(props: Props) {
             <Stack spacing={0} sx={{ flexGrow: 1 }}>
               <Group spacing="xs">
                 <CardListItemTitle size="lg">{user.name}</CardListItemTitle>
-                {user.event_registrant?.role === EventRegistrationRole.LEADER && (
+                {Number(user.event_registrant?.role) === EventRegistrationRole.LEADER && (
                   <Badge variant="light" size="sm" color="yellow">
                     Ketua tim
                   </Badge>
@@ -106,7 +106,7 @@ export default function RegisterRegistrantInformation(props: Props) {
               </Group>
             </Stack>
             <Group sx={{ alignSelf: 'end' }}>
-              {!Number(confirmed) && currentUser?.id !== user.id && currentUser?.event_registrant?.role === EventRegistrationRole.LEADER && (
+              {!Number(confirmed) && currentUser?.id !== user.id && Number(currentUser?.event_registrant?.role) === EventRegistrationRole.LEADER && (
                 <Button px="md" compact radius="xl" variant="light" color="red" onClick={(event) => removeUser(event, user)}>
                   Hapus
                 </Button>
@@ -115,7 +115,7 @@ export default function RegisterRegistrantInformation(props: Props) {
           </Group>
         </CardListItem>
       ))}
-      {!Number(confirmed) && currentUser?.event_registrant?.role === EventRegistrationRole.LEADER && users.length < max_participants && (
+      {!Number(confirmed) && Number(currentUser?.event_registrant?.role) === EventRegistrationRole.LEADER && users.length < max_participants && (
         <CardListItem>
           {!addUserFormOpened ? (
             <UnstyledButton onClick={() => setAddUserFormOpened(true)} w="100%" sx={{ display: 'flex', justifyContent: 'center' }}>
