@@ -11,6 +11,7 @@ import CardListItem from '@/components/Molecules/card-list-item';
 import CardListItemDescription from '@/components/Molecules/card-list-item-description';
 import CardListItemTitle from '@/components/Molecules/card-list-item-title';
 import ModalCreateRegistration from '@/components/Molecules/modal-create-registration';
+import Paragraph from '@/components/Molecules/paragraph';
 import SectionHeader from '@/components/Molecules/section-header';
 import { paths } from '@/config/paths';
 import { useCreateRegistration } from '@/lib/hooks/useCreateRegistration';
@@ -106,6 +107,12 @@ export default function EventCompetitions(props: Props) {
             </Group>
           </CardListItem>
         ))}
+
+        {competitions.length === 0 && (
+          <Paragraph my="2rem" ta="center">
+            Tidak ada kompetisi yang tersedia
+          </Paragraph>
+        )}
       </CardListBase>
 
       <ModalCreateRegistration />

@@ -31,10 +31,10 @@ export default async function RegisterPage(props: Props) {
   const events = await userGetAllEvents(getServerSanctumToken() as string);
 
   const competitions: Event<Competition>[] = events.data?.filter(
-    (registration) => registration.eventable_type === EventType.COMPETITION
+    (event) => event.eventable_type === EventType.COMPETITION && Number(event.is_opened)
   ) as Event<Competition>[];
 
-  const seminars: Event<Seminar>[] = events.data?.filter((registration) => registration.eventable_type === EventType.SEMINAR) as Event<Seminar>[];
+  const seminars: Event<Seminar>[] = events.data?.filter((event) => event.eventable_type === EventType.SEMINAR && Number(event.is_opened)) as Event<Seminar>[];
 
   return (
     <BaseContainer>

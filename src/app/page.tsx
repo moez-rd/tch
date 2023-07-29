@@ -5,10 +5,9 @@ import HomeBrandAlignments from '@/components/Organisms/home/brand-alignments';
 import HomeCompetitions from '@/components/Organisms/home/competitions';
 import HomeFaqs from '@/components/Organisms/home/faqs';
 import HomeHero from '@/components/Organisms/home/hero';
-import HomeSeminar from '@/components/Organisms/home/seminar';
 import { technofest } from '@/config/technofest';
 import { competitionsGetAll, festivalGetCurrent, seminarsGetByCodename } from '@/lib/fetch/v1';
-import type { Event, Festival, Milestone, Seminar } from '@/types/technofest';
+import type { Festival, Milestone } from '@/types/technofest';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 interface Props {}
@@ -25,6 +24,7 @@ export default async function HomePage(props: Props) {
 
   const festival = await festivalGetCurrent();
   const competitions = await competitionsGetAll();
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const seminar = await seminarsGetByCodename(technofest.seminarCodename);
 
   return (
@@ -32,7 +32,7 @@ export default async function HomePage(props: Props) {
       <HomeHero />
       <HomeAbout />
       <HomeCompetitions competitions={competitions.data!} />
-      <HomeSeminar seminar={seminar.data as Event<Seminar>} />
+      {/*<HomeSeminar seminar={seminar.data as Event<Seminar>} />*/}
       <HomeAgenda milestones={festival.data?.milestones as Milestone<Festival>[]} />
       <HomeFaqs />
       <HomeBrandAlignments />

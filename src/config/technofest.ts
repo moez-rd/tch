@@ -36,7 +36,7 @@ export const technofest = {
   socialMediaLinks: [
     {
       name: 'Instagram',
-      link: '#',
+      link: 'https://www.instagram.com/himasiskounsri',
     },
     {
       name: 'Facebook',
@@ -54,11 +54,11 @@ export const technofest = {
       links: [
         {
           label: 'Instagram',
-          link: '#',
+          link: 'https://www.instagram.com/technofest.sk',
         },
         {
           label: 'Tentang',
-          link: '#',
+          link: '/#about',
         },
       ],
     },
@@ -67,15 +67,15 @@ export const technofest = {
       links: [
         {
           label: 'Himasisko',
-          link: '#',
+          link: 'https://himasiskounsri.org',
         },
         {
           label: 'Infokom',
-          link: '#',
+          link: 'https://infokom.himasiskounsri.org',
         },
         {
           label: 'Linktree',
-          link: '#',
+          link: 'https://linktr.ee/himasiskounsri',
         },
       ],
     },
@@ -84,15 +84,15 @@ export const technofest = {
       links: [
         {
           label: 'Instagram',
-          link: '#',
+          link: 'https://www.instagram.com/himasiskounsri',
         },
         {
           label: 'Facebook',
-          link: '#',
+          link: 'https://facebook.com/himasiskofasilkomnusri',
         },
         {
           label: 'Youtube',
-          link: '#',
+          link: 'https://www.youtube.com/@himasiskounsri',
         },
       ],
     },
