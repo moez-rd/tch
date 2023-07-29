@@ -35,8 +35,8 @@ export const useUploadPaymentProof = (paymentId: string, registrationUid: string
 
       const fileName = `event-registration-proofs/${registrationUid}_${file.name}`;
 
-      uploadFile(file, fileName).then(() => {
-        userUpdatePaymentById(getClientSanctumToken() as string, paymentId, { proof: fileName }).then(() => {
+      uploadFile(file, fileName).then((res) => {
+        userUpdatePaymentById(getClientSanctumToken() as string, paymentId, { proof: res }).then(() => {
           setLoading(false);
           router.refresh();
         });

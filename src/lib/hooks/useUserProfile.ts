@@ -57,20 +57,20 @@ export const useUserProfile = (user: User) => {
 
       const fileName = `id-card-images/${user.uid}_${file.name}`;
 
-      const updatedUser: RecursivePartial<User> = {
-        name: form.values.name,
-        email: form.values.email,
-        user_profile: {
-          institution: form.values.user_profile.institution,
-          education_level: Number(form.values.user_profile.education_level),
-          id_number: form.values.user_profile.id_number,
-          id_card_image: fileName,
-          gender: form.values.user_profile.gender,
-          whatsapp: form.values.user_profile.whatsapp,
-        },
-      };
+      uploadFile(file, fileName).then((name) => {
+        const updatedUser: RecursivePartial<User> = {
+          name: form.values.name,
+          email: form.values.email,
+          user_profile: {
+            institution: form.values.user_profile.institution,
+            education_level: Number(form.values.user_profile.education_level),
+            id_number: form.values.user_profile.id_number,
+            id_card_image: name,
+            gender: form.values.user_profile.gender,
+            whatsapp: form.values.user_profile.whatsapp,
+          },
+        };
 
-      uploadFile(file, fileName).then(() => {
         userUpdateProfile(getClientSanctumToken() as string, updatedUser).then((res) => {
           if (res.status === 401 && res.error_code === ErrorCode.NOT_AUTHENTICATED) {
             setError('User tidak terotentikasi');
