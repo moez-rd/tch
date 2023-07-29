@@ -147,7 +147,7 @@ export default function RegisterRegistrantInformation(props: Props) {
         </CardListItem>
       )}
 
-      {max_participants > 1 && (
+      {max_participants > 1 && Number(currentUser?.event_registrant?.role) === EventRegistrationRole.LEADER && (
         <Group mt="lg">
           {!Number(confirmed) ? (
             <Button onClick={(event) => confirmTeam(event)}>Konfirmasi tim</Button>
