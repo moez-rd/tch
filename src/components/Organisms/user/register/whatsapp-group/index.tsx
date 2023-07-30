@@ -27,7 +27,7 @@ export default function RegisterWhatsappGroup(props: Props) {
       {!paymentAccepted ? (
         <Stack spacing="xs">
           <Alert title="Perhatian!" color="orange" mb="sm">
-            Silakan unggah bukti pembayaran dan tunggu konfirmasi dari panitia sebelum mengumpulkan submission.
+            Silakan unggah bukti pembayaran dan tunggu konfirmasi dari panitia sebelum memasuki grup WhatsApp.
           </Alert>
         </Stack>
       ) : (
