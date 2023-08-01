@@ -56,7 +56,7 @@ export default function ProfileProfile(props: Props) {
               {...form.getInputProps('user_profile.education_level')}
             />
 
-            <TextInput label="NIM/NISM" placeholder="NIM/NISM" {...form.getInputProps('user_profile.id_number')} />
+            <TextInput label="NIM/NISN" placeholder="NIM/NISN" {...form.getInputProps('user_profile.id_number')} />
 
             <FileInput
               icon={<IconUpload size={rem(14)} />}
