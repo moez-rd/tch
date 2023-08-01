@@ -36,7 +36,7 @@ export default function EventCompetitions(props: Props) {
 
   const setCreateEventRegistration = useSetRecoilState(createRegistrationModalState);
 
-  const { createRegistration, loading } = useCreateRegistration();
+  const { createRegistration, isLoading } = useCreateRegistration();
 
   const handleRegisterButtonClick = (competition: Event<Competition>) => {
     if (competition.eventable?.max_participants && competition.eventable?.max_participants > 1) {
@@ -99,7 +99,7 @@ export default function EventCompetitions(props: Props) {
                     Detail
                   </Button>
                 ) : (
-                  <Button px="md" compact radius="xl" onClick={() => handleRegisterButtonClick(competition)} loading={loading}>
+                  <Button px="md" compact radius="xl" onClick={() => handleRegisterButtonClick(competition)} loading={isLoading(competition.codename)}>
                     Ikuti
                   </Button>
                 )}

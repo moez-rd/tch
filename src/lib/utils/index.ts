@@ -38,5 +38,11 @@ export function formatDate(date: string | Date | undefined, option: 'date' | 'ti
 }
 
 export function formatPrice(price: number): string {
-  return `Rp${price.toLocaleString('id-ID')}`;
+  const formatter = new Intl.NumberFormat('id-ID', {
+    style: 'currency',
+    currency: 'IDR',
+    minimumFractionDigits: 2,
+  });
+
+  return formatter.format(price);
 }

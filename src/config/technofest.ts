@@ -21,19 +21,14 @@ export const technofest = {
 
   payments: [
     {
-      name: 'Margarine',
+      name: 'Beliana Cahaya Priska',
       bank: 'Dana',
-      number: '082178686298',
+      number: '082179708899',
     },
     {
-      name: 'Margarine',
-      bank: 'Dana',
-      number: '082178686298',
-    },
-    {
-      name: 'Margarine',
-      bank: 'Dana',
-      number: '082178686298',
+      name: 'Beliana Cahaya Priska',
+      bank: 'BNI',
+      number: '1438681905',
     },
   ],
 

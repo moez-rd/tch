@@ -45,5 +45,7 @@ export function paymentBankToColor(type: string): string | undefined {
       return 'yellow';
     case 'BRI':
       return 'blue';
+    case 'BNI':
+      return 'orange';
   }
 }

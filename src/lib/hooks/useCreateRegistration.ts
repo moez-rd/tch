@@ -11,6 +11,8 @@ import { route } from '@/lib/utils/path';
 
 export const useCreateRegistration = (requiredTeamName: boolean = false) => {
   const [loading, setLoading] = useState<boolean>(false);
+  const [currentCodename, setcurrentCodename] = useState<string>('');
+
   const router = useRouter();
 
   const setRegistrationModal = useSetRecoilState(createRegistrationModalState);
@@ -24,8 +26,17 @@ export const useCreateRegistration = (requiredTeamName: boolean = false) => {
     },
   });
 
+  const isLoading = (codename: string) => {
+    if (codename !== currentCodename) {
+      return false;
+    }
+
+    return loading;
+  };
+
   const createRegistration = (eventCodename: string) => {
     setLoading(true);
+    setcurrentCodename(eventCodename);
 
     if (requiredTeamName) {
       form.validate();
@@ -61,7 +72,7 @@ export const useCreateRegistration = (requiredTeamName: boolean = false) => {
 
   return {
     createRegistration,
-    loading,
+    isLoading,
     form,
   };
 };
