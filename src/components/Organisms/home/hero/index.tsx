@@ -41,7 +41,7 @@ export default function HomeHero(props: Props) {
           >
             Gabung
           </Button>
-          <Button component={Link} href={technofest.guidebookLink} size="md" color="green" variant="outline">
+          <Button component={Link} href={technofest.guidebookLink} target="_blank" size="md" color="green" variant="outline">
             Baca Guidebook
           </Button>
         </Group>

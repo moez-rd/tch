@@ -7,7 +7,7 @@ export const technofest = {
 
   about: 'Technofest adalah forum kompetitif berskala nasional yang mewadahi minat dan bakat kaum muda dalam dunia teknologi.',
 
-  guidebookLink: '#',
+  guidebookLink: 'https://drive.google.com/drive/folders/1Qd5KxRlQN9dtKSjcTNUtG49ZebZFzef2',
 
   locale: 'id-ID',
 
