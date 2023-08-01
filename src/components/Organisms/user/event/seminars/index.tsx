@@ -30,7 +30,7 @@ export default function EventSeminars(props: Props) {
   // eslint-disable-next-line no-empty-pattern
   const { seminars } = props;
 
-  const { createRegistration, loading } = useCreateRegistration();
+  const { createRegistration, isLoading } = useCreateRegistration();
 
   const handleRegisterButtonClick = (seminar: Event<Seminar>) => {
     createRegistration(seminar.codename);
@@ -80,7 +80,7 @@ export default function EventSeminars(props: Props) {
                     Detail
                   </Button>
                 ) : (
-                  <Button px="md" radius="xl" compact onClick={() => handleRegisterButtonClick(seminar)} loading={loading}>
+                  <Button px="md" radius="xl" compact onClick={() => handleRegisterButtonClick(seminar)} loading={isLoading(seminar.codename)}>
                     Ikuti
                   </Button>
                 )}
