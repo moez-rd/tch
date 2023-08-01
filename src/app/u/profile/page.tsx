@@ -1,7 +1,10 @@
+import type { Metadata } from 'next';
+
 import BaseContainer from '@/components/Atoms/base-container';
 import ProfileHeader from '@/components/Organisms/user/profile/header';
 import ProfilePassword from '@/components/Organisms/user/profile/password';
 import ProfileProfile from '@/components/Organisms/user/profile/profile';
+import { appConfig } from '@/config/app';
 import { ProviderType } from '@/enums/constants';
 import { redirectIfNotAuthenticated } from '@/lib/auth/redirect';
 import { getServerSanctumToken } from '@/lib/auth/token';
@@ -13,6 +16,19 @@ import type { Provider, User } from '@/types/technofest';
  */
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 interface Props {}
+
+/**
+ *
+ * @param props
+ */
+export async function generateMetadata(props: Props): Promise<Metadata> {
+  // eslint-disable-next-line no-empty-pattern
+  const {} = props;
+
+  return {
+    title: `Profil - ${appConfig.title}`,
+  };
+}
 
 /**
  * React page

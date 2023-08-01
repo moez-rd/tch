@@ -5,7 +5,7 @@ export const technofest = {
 
   logo: '',
 
-  about: '',
+  about: 'Technofest adalah forum kompetitif berskala nasional yang mewadahi minat dan bakat kaum muda dalam dunia teknologi.',
 
   guidebookLink: '#',
 

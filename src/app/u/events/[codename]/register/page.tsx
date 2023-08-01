@@ -1,4 +1,5 @@
 import { IconBrandWhatsapp, IconCash, IconFile, IconTicket, IconUser } from '@tabler/icons-react';
+import type { Metadata } from 'next';
 import { redirect } from 'next/navigation';
 import { getServerSession } from 'next-auth';
 
@@ -11,13 +12,14 @@ import RegisterHeader from '@/components/Organisms/user/register/header';
 import RegisterPayment from '@/components/Organisms/user/register/payment';
 import RegisterRegistrantInformation from '@/components/Organisms/user/register/registrant-information';
 import RegisterWhatsappGroup from '@/components/Organisms/user/register/whatsapp-group';
+import { appConfig } from '@/config/app';
 import { technofest } from '@/config/technofest';
 import { EventRegistrationRole, EventType, PaymentStatus } from '@/enums/constants';
 import { ErrorCode } from '@/enums/error-code';
 import { options } from '@/lib/auth/nextauth';
 import { redirectIfNotAuthenticated } from '@/lib/auth/redirect';
 import { getServerSanctumToken } from '@/lib/auth/token';
-import { userGetRegistrationByEventCodename } from '@/lib/fetch/v1';
+import { eventsGetByCodename, userGetRegistrationByEventCodename } from '@/lib/fetch/v1';
 import type { Competition, Event, Seminar, User } from '@/types/technofest';
 
 import RegisterCompetitionSubmission from '../../../../../components/Organisms/user/register/competition-submission';
@@ -26,6 +28,21 @@ import RegisterCompetitionSubmission from '../../../../../components/Organisms/u
 interface Props {
   params: {
     codename: string;
+  };
+}
+
+/**
+ *
+ * @param props
+ */
+export async function generateMetadata(props: Props): Promise<Metadata> {
+  // eslint-disable-next-line no-empty-pattern
+  const { params } = props;
+
+  const event = await eventsGetByCodename(params.codename);
+
+  return {
+    title: `Registrasi ${event.data?.name} - ${appConfig.title}`,
   };
 }
 

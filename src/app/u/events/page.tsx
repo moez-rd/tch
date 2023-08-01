@@ -1,7 +1,10 @@
+import type { Metadata } from 'next';
+
 import BaseContainer from '@/components/Atoms/base-container';
 import EventCompetitions from '@/components/Organisms/user/event/competitions';
 import EventHeader from '@/components/Organisms/user/event/header';
 import EventSeminars from '@/components/Organisms/user/event/seminars';
+import { appConfig } from '@/config/app';
 import { EventType } from '@/enums/constants';
 import { redirectIfNotAuthenticated, redirectIfUserNotHasProfile } from '@/lib/auth/redirect';
 import { getServerSanctumToken } from '@/lib/auth/token';
@@ -13,6 +16,19 @@ import type { Competition, Event, Seminar } from '@/types/technofest';
  */
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 interface Props {}
+
+/**
+ *
+ * @param props
+ */
+export async function generateMetadata(props: Props): Promise<Metadata> {
+  // eslint-disable-next-line no-empty-pattern
+  const {} = props;
+
+  return {
+    title: `Events - ${appConfig.title}`,
+  };
+}
 
 /**
  * React page

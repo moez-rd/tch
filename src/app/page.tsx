@@ -22,10 +22,12 @@ export default async function HomePage(props: Props) {
   // eslint-disable-next-line no-empty-pattern
   const {} = props;
 
-  const festival = await festivalGetCurrent();
-  const competitions = await competitionsGetAll();
+  const festivalData = festivalGetCurrent();
+  const competitionsData = competitionsGetAll();
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const seminar = await seminarsGetByCodename(technofest.seminarCodename);
+  const seminarData = seminarsGetByCodename(technofest.seminarCodename);
+
+  const [festival, competitions, seminar] = await Promise.all([festivalData, competitionsData, seminarData]);
 
   return (
     <BaseContainer>

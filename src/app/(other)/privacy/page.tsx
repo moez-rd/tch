@@ -1,14 +1,30 @@
 import * as fs from 'fs';
+
 import path from 'path';
+import { Metadata } from 'next';
 
 import BaseContainer from '@/components/Atoms/base-container';
 import PrivacyPolicyBody from '@/components/Organisms/privacy-policy/body';
+import { appConfig } from '@/config/app';
 
 /**
  * Props interface
  */
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 interface Props {}
+
+/**
+ *
+ * @param props
+ */
+export async function generateMetadata(props: Props): Promise<Metadata> {
+  // eslint-disable-next-line no-empty-pattern
+  const {} = props;
+
+  return {
+    title: `Privasi - ${appConfig.title}`,
+  };
+}
 
 /**
  * React page

@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
 import BaseContainer from '@/components/Atoms/base-container';
@@ -5,9 +6,10 @@ import EventAgenda from '@/components/Organisms/event/agenda';
 import EventContactPersons from '@/components/Organisms/event/contact-persons';
 import EventHeader from '@/components/Organisms/event/header';
 import EventSeminarCasts from '@/components/Organisms/event/seminar-casts';
+import { appConfig } from '@/config/app';
 import { EventType } from '@/enums/constants';
 import { ErrorCode } from '@/enums/error-code';
-import { competitionsGetByCodename, eventsGetEventableTypeByCodename, seminarsGetByCodename } from '@/lib/fetch/v1';
+import { competitionsGetByCodename, eventsGetByCodename, eventsGetEventableTypeByCodename, seminarsGetByCodename } from '@/lib/fetch/v1';
 import type { Competition, ContactPerson, Event, Milestone, Seminar } from '@/types/technofest';
 
 /**
@@ -17,6 +19,21 @@ import type { Competition, ContactPerson, Event, Milestone, Seminar } from '@/ty
 interface Props {
   params: {
     codename: string;
+  };
+}
+
+/**
+ *
+ * @param props
+ */
+export async function generateMetadata(props: Props): Promise<Metadata> {
+  // eslint-disable-next-line no-empty-pattern
+  const { params } = props;
+
+  const event = await eventsGetByCodename(params.codename);
+
+  return {
+    title: `${event.data?.name} - ${appConfig.title}`,
   };
 }
 
