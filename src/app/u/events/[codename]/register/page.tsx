@@ -71,7 +71,7 @@ export default async function RegisterPage(props: Props) {
 
   const currentUser = registration.data?.users!.find((user) => user.id === session?.user?.id);
 
-  const paymentAccepted = registration.data?.event_registration_payment?.status === PaymentStatus.ACCEPTED;
+  const paymentAccepted = Number(registration.data?.event_registration_payment?.status) === PaymentStatus.ACCEPTED;
 
   return (
     <BaseContainer spacing="small">

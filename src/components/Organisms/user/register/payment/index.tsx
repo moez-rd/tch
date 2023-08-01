@@ -35,7 +35,7 @@ export default function RegisterPayment(props: Props) {
 
   return (
     <CardListItem>
-      {payment.proof && payment.status === PaymentStatus.NOT_CONFIRMED ? (
+      {payment.proof && Number(payment.status) === PaymentStatus.NOT_CONFIRMED ? (
         <Stack>
           <Alert title="Info!" color="blue" mb="sm">
             Terima kasih telah melakukan pembayaran. Silakan menunggu panitia mengkonfirmasi pembayaran Anda.
@@ -44,7 +44,7 @@ export default function RegisterPayment(props: Props) {
             Status pembayaran: <Badge color="blue">Menunggu konfirmasi</Badge>
           </Text>
         </Stack>
-      ) : payment.proof && payment.status === PaymentStatus.ACCEPTED ? (
+      ) : payment.proof && Number(payment.status) === PaymentStatus.ACCEPTED ? (
         <Stack>
           <Text color="gray.7">
             Status pembayaran: <Badge color="green">Diterima</Badge>
@@ -52,7 +52,7 @@ export default function RegisterPayment(props: Props) {
         </Stack>
       ) : (
         <Stack spacing="xs">
-          {!confirmed && max_participants > 1 && (
+          {!Number(confirmed) && max_participants > 1 && (
             <Alert title="Perhatian!" color="orange" mb="sm">
               Silakan konfirmasi tim sebelum melakukan pembayaran.
             </Alert>
@@ -83,7 +83,7 @@ export default function RegisterPayment(props: Props) {
               placeholder="Unggah bukti pembayaran"
               icon={<IconUpload size={rem(14)} />}
               {...form.getInputProps('proof')}
-              disabled={!confirmed && max_participants > 1}
+              disabled={!Number(confirmed) && max_participants > 1}
             />
             <Group position="right">
               <Button
@@ -94,7 +94,7 @@ export default function RegisterPayment(props: Props) {
                 variant="filled"
                 color="green"
                 loading={loading}
-                disabled={!confirmed && max_participants > 1}
+                disabled={!Number(confirmed) && max_participants > 1}
               >
                 Unggah
               </Button>

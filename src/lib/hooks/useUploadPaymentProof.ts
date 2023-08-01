@@ -41,6 +41,9 @@ export const useUploadPaymentProof = (paymentId: string, registrationUid: string
           router.refresh();
         });
       });
+    } else {
+      setLoading(false);
+      router.refresh();
     }
   };
 
