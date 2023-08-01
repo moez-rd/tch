@@ -1,9 +1,9 @@
 'use client';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { Button, Group, Stack, Title, useMantineTheme } from '@mantine/core';
-import { useMediaQuery } from '@mantine/hooks';
+import { Box, Button, Group, Stack, Title } from '@mantine/core';
 import { IconBolt } from '@tabler/icons-react';
+import Image from 'next/image';
 import Link from 'next/link';
 
 import Container from '@/components/Atoms/container';
@@ -13,6 +13,8 @@ import TimeCount from '@/components/Molecules/time-count';
 import { paths } from '@/config/paths';
 import { technofest } from '@/config/technofest';
 import { route } from '@/lib/utils/path';
+
+import { useStyles } from './styles';
 
 interface Props {}
 
@@ -26,18 +28,21 @@ export default function HomeHero(props: Props) {
   // eslint-disable-next-line no-empty-pattern
   const {} = props;
 
-  const theme = useMantineTheme();
-
-  const maxSm = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`);
+  const { classes } = useStyles();
 
   const registrationTime = new Date() < technofest.registration_open_date ? technofest.registration_open_date : technofest.registration_close_date;
   const registrationTimeTitle = new Date() < technofest.registration_open_date ? 'Pembukaan pendaftaran' : 'Penutupan pendaftaran';
 
   return (
     <Container>
-      <Stack maw="30rem" mx="auto" align="center" mt="10rem" ta="center">
+      <Stack maw="50rem" mx="auto" align="center" mt="10rem" ta="center">
+        <Box
+          style={{ position: 'absolute', zIndex: -1, top: 0, right: 0, left: 0, marginLeft: 'auto', marginRight: 'auto', opacity: 0.7, overflowX: 'hidden' }}
+        >
+          <Image src="/images/blob.svg" alt="blob" width={1040} height={1040} className={classes.blob} />
+        </Box>
         <TextTransformers />
-        <Title order={1} size={maxSm ? '3rem' : '4rem'}>
+        <Title order={1} className={classes.title}>
           Technology Festival 2023.
         </Title>
         <Group spacing="xs">

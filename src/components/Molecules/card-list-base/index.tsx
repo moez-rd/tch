@@ -1,9 +1,10 @@
 'use client';
 
 import type { CardProps } from '@mantine/core';
-import { Card, Stack, useMantineTheme } from '@mantine/core';
-import { useMediaQuery } from '@mantine/hooks';
+import { Card, Stack } from '@mantine/core';
 import React from 'react';
+
+import { useStyles } from './styles';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 interface Props extends CardProps {
@@ -20,12 +21,10 @@ export default function CardListBase(props: Props) {
   // eslint-disable-next-line no-empty-pattern
   const { children } = props;
 
-  const theme = useMantineTheme();
-
-  const maxSm = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`);
+  const { classes } = useStyles();
 
   return (
-    <Card p={maxSm ? 'xs' : 'xl'} bg="gray.1" radius="md" {...props}>
+    <Card className={classes.card} {...props}>
       <Stack spacing="xs">{children}</Stack>
     </Card>
   );

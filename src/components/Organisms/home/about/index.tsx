@@ -1,6 +1,6 @@
 'use client';
 
-import { Box, Grid, Stack, useMantineTheme } from '@mantine/core';
+import { Box, Flex, Stack, useMantineTheme } from '@mantine/core';
 import { useMediaQuery } from '@mantine/hooks';
 import Image from 'next/image';
 
@@ -26,11 +26,11 @@ export default function HomeAbout(props: Props) {
 
   return (
     <Container>
-      <Grid id="about" grow align="center">
-        <Grid.Col span="auto">
+      <Flex id="about" direction={maxSm ? 'column' : 'row'} align="center" gap={maxSm ? '3rem' : '8rem'}>
+        <Box>
           <Box component={Image} src="/lady-tifa.png" alt="Lady Tifa" width={maxSm ? 200 : 280} height={maxSm ? 200 : 280} sx={{ transform: 'scale(-1, 1)' }} />
-        </Grid.Col>
-        <Grid.Col span={2}>
+        </Box>
+        <Box>
           <Stack>
             <SectionHeader title="Tentang" subtitle="Selamat Datang di Technofest 2023" />
             <Paragraph>
@@ -39,8 +39,8 @@ export default function HomeAbout(props: Props) {
               Festival juga bertujuan untuk menyalurkan minat dan bakat anak muda melalui ajang perlombaan yang akan dilaksanakan pada acara tersebut.
             </Paragraph>
           </Stack>
-        </Grid.Col>
-      </Grid>
+        </Box>
+      </Flex>
     </Container>
   );
 }

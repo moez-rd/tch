@@ -29,11 +29,11 @@ export default async function RootLayout(props: Props) {
 
   return (
     <html lang={appConfig.lang}>
-      <body>
+      <body style={{ overflowX: 'hidden', width: '100vw' }}>
         <Providers>
           <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
             <LayoutHeader session={session} competitions={competitions.data || []} seminars={seminars.data || []} />
-            <main style={{ overflowX: 'hidden', flexGrow: 10 }}>{children}</main>
+            <main style={{ flexGrow: 10 }}>{children}</main>
             <LayoutFooter />
           </div>
         </Providers>
