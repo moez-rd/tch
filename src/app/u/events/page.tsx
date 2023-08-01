@@ -28,12 +28,6 @@ export default async function RegisterPage(props: Props) {
 
   await redirectIfUserNotHasProfile();
 
-  function sleep(ms: number) {
-    return new Promise((resolve) => setTimeout(resolve, ms));
-  }
-
-  await sleep(1000);
-
   const events = await userGetAllEvents(getServerSanctumToken() as string);
 
   const competitions: Event<Competition>[] = events.data?.filter(

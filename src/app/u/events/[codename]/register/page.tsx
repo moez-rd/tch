@@ -41,12 +41,6 @@ export default async function RegisterPage(props: Props) {
 
   await redirectIfNotAuthenticated();
 
-  function sleep(ms: number) {
-    return new Promise((resolve) => setTimeout(resolve, ms));
-  }
-
-  await sleep(1000);
-
   const registration = await userGetRegistrationByEventCodename(getServerSanctumToken() as string, params.codename);
 
   if (registration.status === 404 && registration.error_code === ErrorCode.NOT_FOUND) {
