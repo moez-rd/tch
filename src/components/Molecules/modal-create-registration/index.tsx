@@ -23,7 +23,7 @@ export default function ModalCreateRegistration(props: Props) {
 
   const [createEventRegistration, setCreateEventRegistration] = useRecoilState(createRegistrationModalState);
   const { form, loading: joinLoading, error, handleSubmit } = useJoinRegistration();
-  const { createRegistration, loading: createLoading, form: createForm } = useCreateRegistration(true);
+  const { createRegistration, isLoading: createLoading, form: createForm } = useCreateRegistration(true);
 
   const [choice, setChoice] = useState('');
 
@@ -86,7 +86,7 @@ export default function ModalCreateRegistration(props: Props) {
             </Card>
             <Stack align="end">
               <Button
-                loading={joinLoading || createLoading}
+                loading={joinLoading || createLoading(createEventRegistration.eventCodename as string)}
                 onClick={(event) => {
                   handleContinueButtonClick(event);
                 }}

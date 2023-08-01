@@ -41,7 +41,7 @@ export const useJoinRegistration = () => {
         }
 
         if (res.status === 404 && res.error_code === ErrorCode.NOT_FOUND) {
-          setError('Event tidak ditemukan');
+          setError('Tim tidak ditemukan');
           setLoading(false);
           return;
         }
