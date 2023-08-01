@@ -1,6 +1,8 @@
+import * as fs from 'fs';
+import path from 'path';
+
 import BaseContainer from '@/components/Atoms/base-container';
 import PrivacyPolicyBody from '@/components/Organisms/privacy-policy/body';
-import PrivacyPolicyHeader from '@/components/Organisms/privacy-policy/header';
 
 /**
  * Props interface
@@ -14,14 +16,16 @@ interface Props {}
  * @param props
  * @returns
  */
-export default async function FaqsPage(props: Props) {
+export default async function PrivacyPage(props: Props) {
   // eslint-disable-next-line no-empty-pattern
   const {} = props;
 
+  const filePath = path.join(process.cwd(), 'privacy.md');
+  const privacy = fs.readFileSync(filePath, 'utf-8');
+
   return (
     <BaseContainer>
-      <PrivacyPolicyHeader />
-      <PrivacyPolicyBody />
+      <PrivacyPolicyBody privacy={privacy} />
     </BaseContainer>
   );
 }

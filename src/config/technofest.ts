@@ -1,4 +1,8 @@
 export const technofest = {
+  registration_open_date: new Date('2023-08-07'),
+
+  registration_close_date: new Date('2023-08-30'),
+
   logo: '',
 
   about: '',
@@ -33,21 +37,6 @@ export const technofest = {
     },
   ],
 
-  socialMediaLinks: [
-    {
-      name: 'Instagram',
-      link: 'https://www.instagram.com/himasiskounsri',
-    },
-    {
-      name: 'Facebook',
-      link: '#',
-    },
-    {
-      name: 'Youtube',
-      link: '#',
-    },
-  ],
-
   footerLinks: [
     {
       title: 'Technofest',
@@ -59,6 +48,10 @@ export const technofest = {
         {
           label: 'Tentang',
           link: '/#about',
+        },
+        {
+          label: 'Kebijakan privasi',
+          link: '/privacy',
         },
       ],
     },

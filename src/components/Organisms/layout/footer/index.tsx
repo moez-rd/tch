@@ -46,7 +46,7 @@ export default function LayoutFooter(props: Props) {
               <div className={classes.wrapper} key={footerLink.title}>
                 <Text className={classes.title}>{footerLink.title}</Text>
                 {footerLink.links.map((link, index) => (
-                  <Text key={index} className={classes.link} component={Link} href={link.link} onClick={(event) => event.preventDefault()}>
+                  <Text key={index} className={classes.link} component={Link} href={link.link} target="_blank">
                     {link.label}
                   </Text>
                 ))}

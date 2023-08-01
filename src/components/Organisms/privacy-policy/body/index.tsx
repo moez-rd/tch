@@ -1,7 +1,13 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
+'use client';
+
+import { Box } from '@mantine/core';
+import ReactMarkdown from 'react-markdown';
+
 import Container from '@/components/Atoms/container';
 
-interface Props {}
+interface Props {
+  privacy: string;
+}
 
 /**
  * React component
@@ -11,11 +17,13 @@ interface Props {}
  */
 export default function PrivacyPolicyBody(props: Props) {
   // eslint-disable-next-line no-empty-pattern
-  const {} = props;
+  const { privacy } = props;
 
   return (
-    <Container>
-      <p>hello world</p>
+    <Container small>
+      <Box pt="3rem" color="blue.2">
+        <ReactMarkdown>{privacy}</ReactMarkdown>
+      </Box>
     </Container>
   );
 }
