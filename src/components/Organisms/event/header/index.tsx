@@ -2,12 +2,15 @@
 
 import { Button, Group, Stack, Title } from '@mantine/core';
 import Image from 'next/image';
+import Link from 'next/link';
 
 import Container from '@/components/Atoms/container';
 import Paragraph from '@/components/Molecules/paragraph';
 import SectionHeader from '@/components/Molecules/section-header';
 import TimeCount from '@/components/Molecules/time-count';
+import { paths } from '@/config/paths';
 import { technofest } from '@/config/technofest';
+import { route } from '@/lib/utils/path';
 import type { Competition, Event, Seminar } from '@/types/technofest';
 
 interface Props {
@@ -33,8 +36,12 @@ export default function EventHeader(props: Props) {
         </Title>
         <Paragraph ta="center">{event.description}</Paragraph>
         <Group spacing="xs">
-          <Button>Daftar</Button>
-          <Button variant="outline">Guidebook</Button>
+          <Button component={Link} href={route(paths.userEvents)}>
+            Daftar
+          </Button>
+          <Button variant="outline" component={Link} href={technofest.guidebookLink} target="_blank">
+            Guidebook
+          </Button>
         </Group>
         <Stack spacing="2rem" mt="4rem">
           <SectionHeader title="Pembukaan pendaftaran" position="center" />
