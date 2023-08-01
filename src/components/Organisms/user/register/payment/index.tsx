@@ -62,7 +62,7 @@ export default function RegisterPayment(props: Props) {
             <Text span weight={600}>
               {formatPrice(price)}
             </Text>{' '}
-            melalui rekening di bawah ini.
+            melalui:
           </Text>
           <Stack spacing="6">
             {technofest.payments.map((item, key) => (
