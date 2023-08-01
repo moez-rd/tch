@@ -9,17 +9,17 @@ import { options } from './nextauth';
 
 export async function redirectIfAuthenticated() {
   const session = await getServerSession(options);
-  if (session) redirect(technofest.authenticatedHomePath);
+  const sanctumToken = getServerSanctumToken();
+  if (session && sanctumToken) redirect(technofest.authenticatedHomePath);
 }
 
 export async function redirectIfNotAuthenticated() {
   const session = await getServerSession(options);
-  if (!session) redirect(technofest.guestHomePath);
+  const sanctumToken = getServerSanctumToken();
+  if (!(session && sanctumToken)) redirect(technofest.guestHomePath);
 }
 
 export async function redirectIfUserNotHasProfile() {
-  await redirectIfNotAuthenticated();
-
   const user = await userGetCurrent(getServerSanctumToken() as string, ['userProfile']);
 
   if (!user.data?.user_profile) {
