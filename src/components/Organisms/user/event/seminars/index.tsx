@@ -1,6 +1,7 @@
 'use client';
 
-import { Badge, Button, Group, Stack } from '@mantine/core';
+import { Badge, Button, Flex, Group, Stack, useMantineTheme } from '@mantine/core';
+import { useMediaQuery } from '@mantine/hooks';
 import Link from 'next/link';
 
 import Container from '@/components/Atoms/container';
@@ -36,13 +37,17 @@ export default function EventSeminars(props: Props) {
     createRegistration(seminar.codename);
   };
 
+  const theme = useMantineTheme();
+
+  const maxSm = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`);
+
   return (
     <Container small>
       <SectionHeader title="Seminar" secondary />
       <CardListBase>
         {seminars.map((seminar) => (
           <CardListItem key={seminar.id}>
-            <Group position="apart" align="end">
+            <Flex direction={maxSm ? 'column' : 'row'} justify="space-between" align={maxSm ? '' : 'end'} gap="sm">
               <Stack spacing={0}>
                 <Group spacing="xs">
                   <CardListItemTitle>{seminar.name}</CardListItemTitle>
@@ -56,7 +61,7 @@ export default function EventSeminars(props: Props) {
                   <CardListItemDescription>{formatPrice(seminar.price || 0)}</CardListItemDescription>
                 </Group>
               </Stack>
-              <Group spacing="xs">
+              <Group spacing="xs" sx={{ alignSelf: 'end' }}>
                 <Button
                   px="md"
                   compact
@@ -85,7 +90,7 @@ export default function EventSeminars(props: Props) {
                   </Button>
                 )}
               </Group>
-            </Group>
+            </Flex>
           </CardListItem>
         ))}
 

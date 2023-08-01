@@ -1,7 +1,8 @@
 'use client';
 
 import type { TextProps } from '@mantine/core';
-import { Card, Group, Stack, Text } from '@mantine/core';
+import { Card, Group, Stack, Text, useMantineTheme } from '@mantine/core';
+import { useMediaQuery } from '@mantine/hooks';
 import React, { useEffect, useState } from 'react';
 
 import Paragraph from '@/components/Molecules/paragraph';
@@ -35,9 +36,13 @@ export default function TimeCount(props: Props) {
     }, 1000);
   }, [count]);
 
+  const theme = useMantineTheme();
+
+  const maxSm = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`);
+
   return (
-    <Group>
-      <Card withBorder>
+    <Group spacing={maxSm ? 4 : 'md'}>
+      <Card withBorder padding={maxSm ? 4 : 'md'}>
         <Stack spacing="0" align="center" w="4rem">
           <Text size="1.6rem" weight={600}>
             {count.days}
@@ -45,7 +50,7 @@ export default function TimeCount(props: Props) {
           <Paragraph>hari</Paragraph>
         </Stack>
       </Card>
-      <Card withBorder>
+      <Card withBorder padding={maxSm ? 4 : 'md'}>
         <Stack spacing="0" align="center" w="4rem">
           <Text size="1.6rem" weight={600}>
             {count.hours}
@@ -53,7 +58,7 @@ export default function TimeCount(props: Props) {
           <Paragraph>jam</Paragraph>
         </Stack>
       </Card>
-      <Card withBorder>
+      <Card withBorder padding={maxSm ? 4 : 'md'}>
         <Stack spacing="0" align="center" w="4rem">
           <Text size="1.6rem" weight={600}>
             {count.minutes}
@@ -61,7 +66,7 @@ export default function TimeCount(props: Props) {
           <Paragraph>menit</Paragraph>
         </Stack>
       </Card>
-      <Card withBorder>
+      <Card withBorder padding={maxSm ? 4 : 'md'}>
         <Stack spacing="0" align="center" w="4rem">
           <Text size="1.6rem" weight={600}>
             {count.seconds}

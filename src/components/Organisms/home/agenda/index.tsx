@@ -26,12 +26,12 @@ export default function HomeAgenda(props: Props) {
 
   const theme = useMantineTheme();
 
-  const matches = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`);
+  const maxSm = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`);
 
   return (
     <Box bg="dark.5" py="6rem">
       <Container>
-        <Flex gap={matches ? '4rem' : '8rem'} direction={matches ? 'column' : 'row'}>
+        <Flex gap={maxSm ? '4rem' : '8rem'} direction={maxSm ? 'column' : 'row'}>
           <Box>
             <SectionHeader title="Agenda" subtitle="Agenda" position="start" dark />
           </Box>

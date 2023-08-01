@@ -49,7 +49,7 @@ export default async function ProfilePage(props: Props) {
   }) as Provider[];
 
   return (
-    <BaseContainer>
+    <BaseContainer spacing="small">
       <ProfileHeader />
       <ProfileProfile user={user.data as User} />
       {hasCredentialsProvider.length === 0 && <ProfilePassword />}

@@ -29,7 +29,12 @@ export default function SectionHeader(props: Props) {
   if (secondary) {
     return (
       <Stack spacing={0} align={position}>
-        <Title order={2} className={classes.subtitle} color={dark ? theme.colors.gray[0] : theme.colors.gray[7]}>
+        <Title
+          order={2}
+          className={classes.subtitle}
+          color={dark ? theme.colors.gray[0] : theme.colors.gray[7]}
+          ta={position === 'center' ? 'center' : position === 'end' ? 'right' : 'left'}
+        >
           {title}
         </Title>
       </Stack>
@@ -37,11 +42,21 @@ export default function SectionHeader(props: Props) {
   }
 
   return (
-    <Stack spacing={0} align={position}>
-      <Title order={2} className={classes.title} variant="gradient" gradient={{ from: 'green.5', to: 'green.9' }}>
+    <Stack spacing={4} align={position}>
+      <Title
+        order={2}
+        className={classes.title}
+        variant="gradient"
+        gradient={{ from: 'green.5', to: 'green.9' }}
+        ta={position === 'center' ? 'center' : position === 'end' ? 'right' : 'left'}
+      >
         {title}
       </Title>
-      <Text className={classes.subtitle} color={dark ? theme.colors.gray[0] : theme.colors.gray[7]}>
+      <Text
+        className={classes.subtitle}
+        color={dark ? theme.colors.gray[0] : theme.colors.gray[7]}
+        ta={position === 'center' ? 'center' : position === 'end' ? 'right' : 'left'}
+      >
         {subtitle}
       </Text>
     </Stack>

@@ -1,6 +1,7 @@
 'use client';
 
 import { Button, Card, SimpleGrid, Stack, Title, useMantineTheme } from '@mantine/core';
+import { useMediaQuery } from '@mantine/hooks';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -28,11 +29,13 @@ export default function HomeCompetitions(props: Props) {
 
   const theme = useMantineTheme();
 
+  const maxSm = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`);
+
   return (
     <Container>
       <SectionHeader title="Kompetisi" subtitle="Kompetisi" position="center" />
 
-      <Card radius="md" mt="2rem" p="md" withBorder>
+      <Card radius="md" mt="2rem" p={maxSm ? 0 : 'sm'} withBorder>
         <SimpleGrid
           breakpoints={[
             { minWidth: 'xs', cols: 1 },

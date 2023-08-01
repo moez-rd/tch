@@ -1,6 +1,7 @@
 'use client';
 
-import { Box, Grid, Stack } from '@mantine/core';
+import { Box, Grid, Stack, useMantineTheme } from '@mantine/core';
+import { useMediaQuery } from '@mantine/hooks';
 import Image from 'next/image';
 
 import Container from '@/components/Atoms/container';
@@ -19,11 +20,15 @@ export default function HomeAbout(props: Props) {
   // eslint-disable-next-line no-empty-pattern
   const {} = props;
 
+  const theme = useMantineTheme();
+
+  const maxSm = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`);
+
   return (
     <Container>
       <Grid id="about" grow align="center">
         <Grid.Col span="auto">
-          <Box component={Image} src="/lady-tifa.png" alt="Lady Tifa" width={280} height={280} sx={{ transform: 'scale(-1, 1)' }} />
+          <Box component={Image} src="/lady-tifa.png" alt="Lady Tifa" width={maxSm ? 200 : 280} height={maxSm ? 200 : 280} sx={{ transform: 'scale(-1, 1)' }} />
         </Grid.Col>
         <Grid.Col span={2}>
           <Stack>

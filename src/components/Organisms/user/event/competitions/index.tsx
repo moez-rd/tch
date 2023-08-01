@@ -1,6 +1,7 @@
 'use client';
 
-import { Badge, Button, Group, Stack } from '@mantine/core';
+import { Badge, Button, Flex, Group, Stack, useMantineTheme } from '@mantine/core';
+import { useMediaQuery } from '@mantine/hooks';
 import { IconPointFilled } from '@tabler/icons-react';
 import Link from 'next/link';
 import { useSetRecoilState } from 'recoil';
@@ -49,13 +50,17 @@ export default function EventCompetitions(props: Props) {
     }
   };
 
+  const theme = useMantineTheme();
+
+  const maxSm = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`);
+
   return (
     <Container small>
       <SectionHeader title="Kompetisi" secondary />
       <CardListBase>
         {competitions.map((competition) => (
           <CardListItem key={competition.id}>
-            <Group position="apart" align="end">
+            <Flex direction={maxSm ? 'column' : 'row'} justify="space-between" align={maxSm ? '' : 'end'} gap="sm">
               <Stack spacing={0}>
                 <Group spacing="xs">
                   <CardListItemTitle>{competition.name}</CardListItemTitle>
@@ -75,7 +80,7 @@ export default function EventCompetitions(props: Props) {
                   <CardListItemDescription>{formatPrice(competition.price || 0)}</CardListItemDescription>
                 </Group>
               </Stack>
-              <Group spacing={6}>
+              <Group spacing={6} sx={{ alignSelf: 'end' }}>
                 <Button
                   px="md"
                   compact
@@ -104,7 +109,7 @@ export default function EventCompetitions(props: Props) {
                   </Button>
                 )}
               </Group>
-            </Group>
+            </Flex>
           </CardListItem>
         ))}
 

@@ -27,6 +27,9 @@ export default function EventHeader(props: Props) {
   // eslint-disable-next-line no-empty-pattern
   const { event } = props;
 
+  const registrationTime = new Date() < technofest.registration_open_date ? technofest.registration_open_date : technofest.registration_close_date;
+  const registrationTimeTitle = new Date() < technofest.registration_open_date ? 'Pembukaan pendaftaran' : 'Penutupan pendaftaran';
+
   return (
     <Container>
       <Stack align="center" mt="6rem">
@@ -43,9 +46,9 @@ export default function EventHeader(props: Props) {
             Guidebook
           </Button>
         </Group>
-        <Stack spacing="2rem" mt="4rem">
-          <SectionHeader title="Pembukaan pendaftaran" position="center" />
-          <TimeCount time={technofest.registration_open_date} />
+        <Stack spacing="2rem" mt="4rem" align="center">
+          <SectionHeader title={registrationTimeTitle} position="center" />
+          <TimeCount time={registrationTime} />
         </Stack>
       </Stack>
     </Container>

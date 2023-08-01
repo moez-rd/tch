@@ -53,7 +53,7 @@ export default async function RegisterPage(props: Props) {
   const seminars: Event<Seminar>[] = events.data?.filter((event) => event.eventable_type === EventType.SEMINAR && Number(event.is_opened)) as Event<Seminar>[];
 
   return (
-    <BaseContainer>
+    <BaseContainer spacing="small">
       <EventHeader />
       <EventCompetitions competitions={competitions} />
       <EventSeminars seminars={seminars} />

@@ -1,6 +1,7 @@
 'use client';
 
-import { Avatar, Box, Button, CopyButton, Flex, Group, Stack, Text, Title } from '@mantine/core';
+import { Avatar, Box, Button, CopyButton, Flex, Group, Stack, Text, Title, useMantineTheme } from '@mantine/core';
+import { useMediaQuery } from '@mantine/hooks';
 import { IconCheck, IconCopy, IconTicket, IconUserEdit } from '@tabler/icons-react';
 import Link from 'next/link';
 
@@ -24,9 +25,13 @@ export default function DashboardHeader(props: Props) {
   // eslint-disable-next-line no-empty-pattern
   const { user } = props;
 
+  const theme = useMantineTheme();
+
+  const maxSm = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`);
+
   return (
     <Container>
-      <Flex align="center" justify="center" bg="dark.5" h="16rem" mt="2rem" sx={(theme) => ({ borderRadius: theme.radius.lg })}>
+      <Flex align="center" justify="center" bg="dark.5" h={maxSm ? '10rem' : '16rem'} mt="2rem" sx={{ borderRadius: theme.radius.lg }}>
         <Text color="gray.6" sx={{ letterSpacing: '1rem', mr: '-1rem' }}>
           Welcome
         </Text>
