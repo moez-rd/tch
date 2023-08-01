@@ -67,7 +67,7 @@ export default async function RegisterPage(props: Props) {
 
   const session = await getServerSession(options);
 
-  const maxParticipants = (competition && competition.eventable?.max_participants) || 1;
+  const maxParticipants = (competition && Number(competition.eventable?.max_participants)) || 1;
 
   const currentUser = registration.data?.users!.find((user) => user.id === session?.user?.id);
 
