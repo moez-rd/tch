@@ -24,9 +24,9 @@ export default async function HomePage(props: Props) {
 
   const festivalData = festivalGetCurrent();
   const competitionsData = competitionsGetAll();
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const seminarData = seminarsGetByCodename(technofest.seminarCodename);
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [festival, competitions, seminar] = await Promise.all([festivalData, competitionsData, seminarData]);
 
   return (
