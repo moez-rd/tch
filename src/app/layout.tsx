@@ -32,7 +32,7 @@ export default async function RootLayout(props: Props) {
       <body>
         <Providers>
           <LayoutHeader session={session} competitions={competitions.data || []} seminars={seminars.data || []} />
-          <main>{children}</main>
+          <main style={{ overflowX: 'hidden' }}>{children}</main>
           <LayoutFooter />
         </Providers>
       </body>
