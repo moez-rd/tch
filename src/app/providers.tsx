@@ -4,6 +4,7 @@ import { MantineProvider, useEmotionCache } from '@mantine/core';
 import { ModalsProvider } from '@mantine/modals';
 import { useServerInsertedHTML } from 'next/navigation';
 import { SessionProvider } from 'next-auth/react';
+import React from 'react';
 import { RecoilRoot } from 'recoil';
 
 import { theme } from '@/lib/mantine/theme';

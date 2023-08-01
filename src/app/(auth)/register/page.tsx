@@ -7,7 +7,6 @@ import { redirectIfAuthenticated } from '@/lib/auth/redirect';
 /**
  * Props interface
  */
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 interface Props {}
 
 /**

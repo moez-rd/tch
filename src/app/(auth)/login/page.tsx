@@ -4,7 +4,6 @@ import AuthLogin from '@/components/Organisms/auth/login';
 import { appConfig } from '@/config/app';
 import { redirectIfAuthenticated } from '@/lib/auth/redirect';
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 interface Props {}
 
 /**

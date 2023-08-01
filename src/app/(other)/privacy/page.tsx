@@ -1,7 +1,6 @@
 import * as fs from 'fs';
-
+import type { Metadata } from 'next';
 import path from 'path';
-import { Metadata } from 'next';
 
 import BaseContainer from '@/components/Atoms/base-container';
 import PrivacyPolicyBody from '@/components/Organisms/privacy-policy/body';

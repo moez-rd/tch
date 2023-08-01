@@ -7,6 +7,7 @@ import BaseContainer from '@/components/Atoms/base-container';
 import RegistrationStepper from '@/components/Molecules/registration-stepper';
 import RegistrationStepperItem from '@/components/Molecules/registration-stepper-item';
 import RegisterActionButtons from '@/components/Organisms/user/register/action-buttons';
+import RegisterCompetitionSubmission from '@/components/Organisms/user/register/competition-submission';
 import RegisterEventInformation from '@/components/Organisms/user/register/event-information';
 import RegisterHeader from '@/components/Organisms/user/register/header';
 import RegisterPayment from '@/components/Organisms/user/register/payment';
@@ -21,8 +22,6 @@ import { redirectIfNotAuthenticated } from '@/lib/auth/redirect';
 import { getServerSanctumToken } from '@/lib/auth/token';
 import { eventsGetByCodename, userGetRegistrationByEventCodename } from '@/lib/fetch/v1';
 import type { Competition, Event, Seminar, User } from '@/types/technofest';
-
-import RegisterCompetitionSubmission from '../../../../../components/Organisms/user/register/competition-submission';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 interface Props {
