@@ -3,6 +3,9 @@
 import { Box } from '@mantine/core';
 import Link from 'next/link';
 import React from 'react';
+import { useSetRecoilState } from 'recoil';
+
+import { mobileNavState } from '@/lib/recoil/mobileNavAtom';
 
 import { useStyles } from './layout-header-mobile-link.styles';
 
@@ -22,10 +25,21 @@ export default function LayoutHeaderMobileLink(props: Props) {
   // eslint-disable-next-line no-empty-pattern
   const { label, link } = props;
 
+  const setMobileNav = useSetRecoilState(mobileNavState);
+
+  const closeMobileNav = () => {
+    setMobileNav((prev) => {
+      return {
+        ...prev,
+        opened: false,
+      };
+    });
+  };
+
   const { classes } = useStyles();
 
   return (
-    <Box component={Link} href={{ pathname: link }} className={classes.link}>
+    <Box component={Link} href={link} onClick={closeMobileNav} className={classes.link}>
       {label}
     </Box>
   );

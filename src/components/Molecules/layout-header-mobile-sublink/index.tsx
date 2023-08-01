@@ -5,6 +5,9 @@ import { useDisclosure } from '@mantine/hooks';
 import { IconChevronRight } from '@tabler/icons-react';
 import Link from 'next/link';
 import React from 'react';
+import { useSetRecoilState } from 'recoil';
+
+import { mobileNavState } from '@/lib/recoil/mobileNavAtom';
 
 import { useStyles } from './layout-header-mobile-sublink.styles';
 
@@ -30,6 +33,17 @@ export default function LayoutHeaderMobileSublink(props: Props) {
   const [mobileSubNavOpened, { toggle: toggleMobileSubNav }] = useDisclosure(false);
   const { classes, theme } = useStyles();
 
+  const setMobileNav = useSetRecoilState(mobileNavState);
+
+  const closeMobileNav = () => {
+    setMobileNav((prev) => {
+      return {
+        ...prev,
+        opened: false,
+      };
+    });
+  };
+
   return (
     <>
       <UnstyledButton className={classes.link} w="100%" onClick={toggleMobileSubNav}>
@@ -50,7 +64,7 @@ export default function LayoutHeaderMobileSublink(props: Props) {
       <Collapse in={mobileSubNavOpened}>
         <Stack spacing={0} pl="lg" sx={{ borderLeft: `1px solid ${theme.colors.green[5]}` }}>
           {links.map((link) => (
-            <Box key={link.label} component={Link} href={{ pathname: link.link }} pl="1rem" className={classes.link}>
+            <Box key={link.label} component={Link} href={{ pathname: link.link }} onClick={closeMobileNav} pl="1rem" className={classes.link}>
               {link.label}
             </Box>
           ))}

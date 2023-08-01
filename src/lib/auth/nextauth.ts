@@ -63,7 +63,7 @@ export const options: AuthOptions = {
         return false;
       }
 
-      cookies().set('sanctum-token', res.data?.access_token as string, { httpOnly: true, secure: true, sameSite: 'lax' });
+      cookies().set('sanctum-token', res.data?.access_token as string, { secure: true, sameSite: 'lax' });
 
       return true;
     },

@@ -23,7 +23,7 @@ export default function FaqFaqList(props: Props) {
     <Container small>
       <Accordion>
         {faqs.map((faq) => (
-          <Accordion.Item value={faq.question}>
+          <Accordion.Item value={faq.question} key={faq.id}>
             <Accordion.Control>{faq.question}</Accordion.Control>
             <Accordion.Panel>{faq.answer}</Accordion.Panel>
           </Accordion.Item>

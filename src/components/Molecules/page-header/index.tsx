@@ -21,7 +21,7 @@ export default function PageHeader(props: Props) {
   return (
     <Text fw={300} size="lg" color="gray.7" {...props}>
       <Stack align="center" mt="8rem">
-        <Title order={1} color="gray.8">
+        <Title order={1} size="3rem" color="gray.8">
           {children}
         </Title>
       </Stack>

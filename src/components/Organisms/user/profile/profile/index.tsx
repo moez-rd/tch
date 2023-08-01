@@ -41,8 +41,8 @@ export default function ProfileProfile(props: Props) {
 
             <TextInput
               description="Masukkan asal sekolah/universitas. Misal: Universitas Sriwijaya"
-              label="Institusi"
-              placeholder="Institusi"
+              label="Asal Instansi"
+              placeholder="Asal Instansi"
               {...form.getInputProps('user_profile.institution')}
             />
 
@@ -77,7 +77,7 @@ export default function ProfileProfile(props: Props) {
             />
 
             <TextInput
-              description="Nomor WhatsApp yang valid"
+              description="Contoh: 082178662122"
               label="Nomor WhatsApp"
               placeholder="Nomor WhatsApp"
               {...form.getInputProps('user_profile.whatsapp')}

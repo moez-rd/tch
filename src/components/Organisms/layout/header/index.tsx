@@ -2,10 +2,10 @@
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { Box, Burger, Button, Collapse, Group, Stack } from '@mantine/core';
-import { useDisclosure } from '@mantine/hooks';
 import Image from 'next/image';
 import Link from 'next/link';
 import type { Session } from 'next-auth';
+import { useRecoilState } from 'recoil';
 
 import Container from '@/components/Atoms/container';
 import LayoutHeaderAuth from '@/components/Molecules/layout-header-auth';
@@ -16,6 +16,7 @@ import LayoutHeaderMobileLink from '@/components/Molecules/layout-header-mobile-
 import LayoutHeaderMobileSublink from '@/components/Molecules/layout-header-mobile-sublink';
 import { paths } from '@/config/paths';
 import { technofest } from '@/config/technofest';
+import { mobileNavState } from '@/lib/recoil/mobileNavAtom';
 import { route } from '@/lib/utils/path';
 import type { Competition, Event, Seminar } from '@/types/technofest';
 
@@ -37,7 +38,9 @@ export default function LayoutHeader(props: Props) {
   // eslint-disable-next-line no-empty-pattern
   const { session, seminars, competitions } = props;
 
-  const [mobileNavOpened, { toggle: toggleMobileNav }] = useDisclosure(false);
+  // const [mobileNavOpened, { toggle: toggleMobileNav }] = useDisclosure(false);
+
+  const [mobileNav, setMobileNav] = useRecoilState(mobileNavState);
   const { classes, theme } = useStyles();
 
   const competitionLinks = competitions.map((competition) => {
@@ -55,6 +58,15 @@ export default function LayoutHeader(props: Props) {
       link: route(paths.eventDetail, { eventCodename: seminar.codename }),
     };
   });
+
+  const toggleMobileNav = () => {
+    setMobileNav((prev) => {
+      return {
+        ...prev,
+        opened: !mobileNav.opened,
+      };
+    });
+  };
 
   return (
     <Box>
@@ -82,19 +94,19 @@ export default function LayoutHeader(props: Props) {
                 </Button>
               )}
 
-              <Burger opened={mobileNavOpened} onClick={toggleMobileNav} />
+              <Burger opened={mobileNav.opened} onClick={toggleMobileNav} />
             </Group>
           </Group>
         </Container>
       </Box>
 
-      <Collapse in={mobileNavOpened}>
+      <Collapse in={mobileNav.opened}>
         <Box sx={{ borderBottom: `1px solid ${theme.colors.gray[2]}` }}>
           <Container>
             <Stack spacing={0} py={20}>
               <LayoutHeaderMobileSublink label="Kompetisi" links={competitionLinks} />
               <LayoutHeaderMobileSublink label="Seminar" links={seminarLinks} />
-              <LayoutHeaderMobileLink label="Tentang" link="#" />
+              <LayoutHeaderMobileLink label="Tentang" link="/#about" />
               <LayoutHeaderMobileLink label="Faqs" link={route(paths.faqs)} />
               <LayoutHeaderMobileAuth session={session} />
             </Stack>
