@@ -69,7 +69,7 @@ export default function LayoutHeader(props: Props) {
   };
 
   return (
-    <Box bg="white" sx={{ position: 'sticky', top: 0, zIndex: 1 }}>
+    <Box sx={{ position: 'sticky', top: 0, zIndex: 1, backdropFilter: 'blur(10px)', backgroundColor: 'rgba(255, 255, 255, 0.9)' }}>
       <Box h={60} py="xs" sx={{ borderBottom: `1px solid ${theme.colors.gray[2]}` }}>
         <Container>
           <Group position="apart" sx={{ height: '100%' }}>
