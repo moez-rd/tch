@@ -1,3 +1,4 @@
+import { Analytics } from '@vercel/analytics/react';
 import type { Metadata } from 'next';
 import { getServerSession } from 'next-auth';
 import React from 'react';
@@ -37,6 +38,7 @@ export default async function RootLayout(props: Props) {
             <LayoutFooter />
           </div>
         </Providers>
+        <Analytics />
       </body>
     </html>
   );
