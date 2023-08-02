@@ -1,7 +1,7 @@
 export const appConfig = {
   title: 'Technofest',
 
-  description: '',
+  description: 'Technofest adalah forum kompetitif berskala nasional yang mewadahi minat dan bakat kaum muda dalam dunia teknologi.',
 
   author: 'Infokom',
 
