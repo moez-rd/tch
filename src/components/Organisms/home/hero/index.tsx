@@ -35,10 +35,8 @@ export default function HomeHero(props: Props) {
 
   return (
     <Container>
-      <Stack maw="50rem" mx="auto" align="center" mt="10rem" ta="center">
-        <Box
-          style={{ position: 'absolute', zIndex: -1, top: 0, right: 0, left: 0, marginLeft: 'auto', marginRight: 'auto', opacity: 0.7, overflowX: 'hidden' }}
-        >
+      <Stack maw="40rem" mx="auto" align="center" mt="10rem" ta="center">
+        <Box className={classes.blobContainer}>
           <Image src="/images/blob.svg" alt="blob" width={1040} height={1040} className={classes.blob} />
         </Box>
         <TextTransformers />

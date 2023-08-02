@@ -7,6 +7,8 @@ import { useEffect, useState } from 'react';
 import { technofest } from '@/config/technofest';
 import { Messenger } from '@/lib/utils/textTransformer';
 
+import { useStyles } from './styles';
+
 interface Props {}
 
 /**
@@ -26,9 +28,7 @@ export default function TextTransformers(props: Props) {
     new Messenger(setMessenger);
   }, []);
 
-  return (
-    <Text size="xl" ff="monospace" color="gray.7" weight={300} sx={{ letterSpacing: '0.1rem' }}>
-      {messenger}
-    </Text>
-  );
+  const { classes } = useStyles();
+
+  return <Text className={classes.text}>{messenger}</Text>;
 }

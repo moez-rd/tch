@@ -2,20 +2,34 @@ import { createStyles } from '@mantine/core';
 
 export const useStyles = createStyles((theme) => ({
   title: {
-    size: '6rem',
-    color: 'gray.8',
+    fontSize: '5rem',
+    color: theme.colors.gray[9],
+
     [theme.fn.smallerThan('sm')]: {
-      size: '3rem',
+      fontSize: '3rem',
     },
   },
 
   blob: {
-    width: 1040,
-    height: 1040,
+    width: 1000,
+    height: 1000,
 
     [theme.fn.smallerThan('sm')]: {
-      width: 600,
-      height: 700,
+      width: 700,
+      height: 800,
     },
+  },
+
+  blobContainer: {
+    position: 'absolute',
+    zIndex: -1,
+    top: '-10rem',
+    right: 0,
+    left: 0,
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    opacity: 0.7,
+    overflowX: 'hidden',
+    width: '100vw',
   },
 }));
