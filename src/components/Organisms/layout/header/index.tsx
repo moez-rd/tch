@@ -5,6 +5,7 @@ import { Box, Burger, Button, Collapse, Group, Stack } from '@mantine/core';
 import Image from 'next/image';
 import Link from 'next/link';
 import type { Session } from 'next-auth';
+import { useEffect, useState } from 'react';
 import { useRecoilState } from 'recoil';
 
 import Container from '@/components/Atoms/container';
@@ -42,6 +43,7 @@ export default function LayoutHeader(props: Props) {
 
   const [mobileNav, setMobileNav] = useRecoilState(mobileNavState);
   const { classes, theme } = useStyles();
+  const [transparent, setTransparent] = useState(false);
 
   const competitionLinks = competitions.map((competition) => {
     return {
@@ -68,9 +70,28 @@ export default function LayoutHeader(props: Props) {
     });
   };
 
+  useEffect(() => {
+    function handleNavbar() {
+      setTransparent(window.scrollY > 10);
+    }
+
+    window.onscroll = () => {
+      handleNavbar();
+    };
+  });
+
   return (
-    <Box sx={{ position: 'sticky', top: 0, zIndex: 1, backdropFilter: 'blur(10px)', backgroundColor: 'rgba(255, 255, 255, 0.9)' }}>
-      <Box h={60} py="xs" sx={{ borderBottom: `1px solid ${theme.colors.gray[2]}` }}>
+    <Box
+      sx={{
+        position: 'fixed',
+        width: '100%',
+        top: 0,
+        zIndex: 1,
+        backdropFilter: 'blur(10px)',
+        backgroundColor: `rgba(255, 255, 255, ${transparent || mobileNav.opened ? 0.85 : 0.0})`,
+      }}
+    >
+      <Box h={60} py="xs" sx={{ borderBottom: transparent || mobileNav.opened ? `1px solid ${theme.colors.gray[2]}` : '' }}>
         <Container>
           <Group position="apart" sx={{ height: '100%' }}>
             <Group>

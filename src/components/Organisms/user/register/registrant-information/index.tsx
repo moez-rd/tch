@@ -2,9 +2,9 @@
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { ActionIcon, Alert, Avatar, Badge, Button, Group, Stack, Text, TextInput, UnstyledButton, useMantineTheme } from '@mantine/core';
-import { IconCheck, IconEdit, IconPlus, IconPointFilled, IconX } from '@tabler/icons-react';
+import { IconAt, IconCheck, IconEdit, IconPlus, IconPointFilled, IconX } from '@tabler/icons-react';
 import type { Session } from 'next-auth';
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 import CardListBase from '@/components/Molecules/card-list-base';
 import CardListItem from '@/components/Molecules/card-list-item';
@@ -128,7 +128,7 @@ export default function RegisterRegistrantInformation(props: Props) {
             </UnstyledButton>
           ) : (
             <Stack spacing="xs">
-              <TextInput label="Tambah peserta" placeholder="UID Peserta" {...form.getInputProps('uid')} />
+              <TextInput icon={<IconAt size="0.8em" />} label="Tambah peserta" placeholder="UID Peserta" {...form.getInputProps('uid')} />
               {error && (
                 <Alert color="red">
                   <Text color="red">{error}</Text>

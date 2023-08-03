@@ -2,7 +2,8 @@
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { Button, CopyButton, Group, Text } from '@mantine/core';
-import { IconCheck, IconCopy, IconLogout2, IconTrash } from '@tabler/icons-react';
+import { IconCheck, IconCopy, IconHash, IconLogout2, IconTrash } from '@tabler/icons-react';
+import React from 'react';
 
 import Container from '@/components/Atoms/container';
 import { EventRegistrationRole } from '@/enums/constants';
@@ -34,6 +35,7 @@ export default function RegisterActionButtons(props: Props) {
         <Group>
           <Text size="xl">
             UID:&nbsp;
+            <IconHash size="0.8em" />
             <Text span ff="monospace" weight={600}>
               {registrationUid}
             </Text>
@@ -47,9 +49,9 @@ export default function RegisterActionButtons(props: Props) {
           </CopyButton>
         </Group>
         <Group position="right">
-          {currentUser.event_registrant?.role !== EventRegistrationRole.LEADER ? (
+          {currentUser.event_registrant?.role === EventRegistrationRole.MEMBER ? (
             <Button variant="subtle" color="red" onClick={(event) => leave(event)} leftIcon={<IconLogout2 size={16} />}>
-              Keluar
+              Keluar dari tim
             </Button>
           ) : (
             <Button variant="subtle" color="red" onClick={(event) => deleteRegistration(event)} leftIcon={<IconTrash size={16} />}>

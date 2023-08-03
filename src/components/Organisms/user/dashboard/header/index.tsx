@@ -2,8 +2,9 @@
 
 import { Avatar, Box, Button, CopyButton, Flex, Group, Stack, Text, Title, useMantineTheme } from '@mantine/core';
 import { useMediaQuery } from '@mantine/hooks';
-import { IconCheck, IconCopy, IconTicket, IconUserEdit } from '@tabler/icons-react';
+import { IconAt, IconCheck, IconCopy, IconTicket, IconUserEdit } from '@tabler/icons-react';
 import Link from 'next/link';
+import React from 'react';
 
 import Container from '@/components/Atoms/container';
 import { paths } from '@/config/paths';
@@ -63,6 +64,7 @@ export default function DashboardHeader(props: Props) {
         <Group bg="gray.3" pl="10px" sx={{ borderRadius: '4px' }}>
           <Text color="gray.9">UID:</Text>
           <Text color="gray.9" ff="monospace">
+            <IconAt size="0.8em" />
             {user?.uid}
           </Text>
           <CopyButton value={user?.uid || ''}>

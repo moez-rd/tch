@@ -3,9 +3,9 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { Box, Button, Group, Stack, Title } from '@mantine/core';
 import { IconBolt } from '@tabler/icons-react';
-import Image from 'next/image';
 import Link from 'next/link';
 
+import Blob from '@/components/Atoms/blob';
 import Container from '@/components/Atoms/container';
 import TextTransformers from '@/components/Atoms/text-transformers';
 import SectionHeader from '@/components/Molecules/section-header';
@@ -37,7 +37,8 @@ export default function HomeHero(props: Props) {
     <Container>
       <Stack maw="40rem" mx="auto" align="center" mt="10rem" ta="center">
         <Box className={classes.blobContainer}>
-          <Image src="/images/blob.svg" alt="blob" width={1040} height={1040} className={classes.blob} />
+          {/*<Image src="/images/blob.svg" alt="blob" width={1040} height={1040} className={classes.blob} />*/}
+          <Blob />
         </Box>
         <TextTransformers />
         <Title order={1} className={classes.title}>

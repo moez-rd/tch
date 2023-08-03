@@ -34,7 +34,7 @@ export default async function RootLayout(props: Props) {
         <Providers>
           <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
             <LayoutHeader session={session} competitions={competitions.data || []} seminars={seminars.data || []} />
-            <main style={{ flexGrow: 10 }}>{children}</main>
+            <main style={{ flexGrow: 10, paddingTop: 60 }}>{children}</main>
             <LayoutFooter />
           </div>
         </Providers>

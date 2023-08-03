@@ -21,7 +21,7 @@ export const useLeaveRegistration = (registrationUid: string) => {
     modals.openConfirmModal({
       title: 'Konfirmasi Keluar',
       centered: true,
-      children: <Text size="sm">Yakin ingin keluar? Pendaftaran akan dihapus.</Text>,
+      children: <Text size="sm">Yakin ingin keluar dari pendaftaran?</Text>,
       labels: { confirm: 'Ya', cancel: 'Batal' },
       confirmProps: { color: 'red' },
       onConfirm: () => {

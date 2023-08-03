@@ -1,6 +1,7 @@
 'use client';
 
 import { Alert, Button, Card, Flex, Modal, Radio, Stack, Text, TextInput } from '@mantine/core';
+import { IconHash } from '@tabler/icons-react';
 import React, { useState } from 'react';
 import { useRecoilState } from 'recoil';
 
@@ -75,7 +76,7 @@ export default function ModalCreateRegistration(props: Props) {
                   <Text size="sm" color="gray.6">
                     Masuk ke pendaftaran yang sudah ada dengan memasukkan UID pendaftaran.
                   </Text>
-                  <TextInput placeholder="UID pendaftaran" disabled={choice !== 'join'} {...form.getInputProps('uid')} />
+                  <TextInput icon={<IconHash size="0.8rem" />} placeholder="UID pendaftaran" disabled={choice !== 'join'} {...form.getInputProps('uid')} />
                   {error && (
                     <Alert color="red">
                       <Text color="red">{error}</Text>

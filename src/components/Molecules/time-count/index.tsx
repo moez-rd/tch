@@ -41,33 +41,33 @@ export default function TimeCount(props: Props) {
 
   return (
     <Group className={classes.group}>
-      <Card withBorder className={classes.card}>
+      <Card className={classes.card}>
         <Stack spacing={0} className={classes.stack}>
-          <Text size="1.6rem" weight={600}>
+          <Text size="1.6rem" color="gray.7" weight={600}>
             {count.days}
           </Text>
           <Paragraph>hari</Paragraph>
         </Stack>
       </Card>
-      <Card withBorder className={classes.card}>
+      <Card className={classes.card}>
         <Stack spacing={0} className={classes.stack}>
-          <Text size="1.6rem" weight={600}>
+          <Text size="1.6rem" color="gray.7" weight={600}>
             {count.hours}
           </Text>
           <Paragraph>jam</Paragraph>
         </Stack>
       </Card>
-      <Card withBorder className={classes.card}>
+      <Card className={classes.card}>
         <Stack spacing={0} className={classes.stack}>
-          <Text size="1.6rem" weight={600}>
+          <Text size="1.6rem" color="gray.7" weight={600}>
             {count.minutes}
           </Text>
           <Paragraph>menit</Paragraph>
         </Stack>
       </Card>
-      <Card withBorder className={classes.card}>
+      <Card className={classes.card}>
         <Stack spacing={0} className={classes.stack}>
-          <Text size="1.6rem" weight={600}>
+          <Text size="1.6rem" color="gray.7" weight={600}>
             {count.seconds}
           </Text>
           <Paragraph>detik</Paragraph>

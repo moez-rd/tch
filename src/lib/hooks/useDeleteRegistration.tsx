@@ -21,7 +21,7 @@ export const useDeleteRegistration = (registrationUid: string) => {
     modals.openConfirmModal({
       title: 'Konfirmasi Penghapusan',
       centered: true,
-      children: <Text size="sm">Yakin ingin menghapus pendaftaran? Tindakan ini akan mengeluarkan seluruh anggota tim yang ada.</Text>,
+      children: <Text size="sm">Yakin ingin menghapus pendaftaran?</Text>,
       labels: { confirm: 'Ya', cancel: 'Batal' },
       confirmProps: { color: 'red' },
       onConfirm: () => {
