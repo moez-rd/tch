@@ -31,7 +31,7 @@ export default function EventHeader(props: Props) {
   const registrationTimeTitle = new Date() < technofest.registration_open_date ? 'Pembukaan pendaftaran' : 'Penutupan pendaftaran';
 
   return (
-    <Container>
+    <Container small>
       <Stack align="center" mt="6rem">
         {event.image && <Image src={event.image || ''} alt={event.name} width={240} height={240} />}
         <Title order={1} size="4rem">
