@@ -46,7 +46,7 @@ export default function HomeAgenda(props: Props) {
                     {milestone.name}
                   </Title>
                   <Paragraph color="dimmed" display="inline">
-                    {milestone.description} dasdad dasdn dakd kada kdadand
+                    {milestone.description}
                   </Paragraph>
                 </TimelineItem>
               ))}
