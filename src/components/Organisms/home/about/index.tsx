@@ -34,9 +34,10 @@ export default function HomeAbout(props: Props) {
           <Stack>
             <SectionHeader title="Tentang" subtitle="Selamat Datang di Technofest 2023" />
             <Paragraph>
-              Technology Festival adalah festival tahunan yang diadakan oleh Himpunan Mahasiswa Sistem Komputer Universitas Sriwijaya. Terdiri dari perlombaan
-              dan seminar yang bertujuan untuk memotivasi kaum muda, terutama mahasiswa agar dapat berinovasi di dunia teknologi yang semakin maju. Technology
-              Festival juga bertujuan untuk menyalurkan minat dan bakat anak muda melalui ajang perlombaan yang akan dilaksanakan pada acara tersebut.
+              Technology Festival atau yang biasa dikenal dengan Technofest adalah forum kompetitif berskala nasional yang mewadahi minat dan bakat kaum muda
+              dalam dunia teknologi. Ajang kompetitif yang disediakan adalah lomba essay, poster, dan UI/UX. Technofest juga memberikan seminar untuk
+              menyalurkan pengetahuan dan informasi yang berkembang pesat kepada generasi muda dengan tujuan untuk memotivasi kaum muda agar dapat berinovasi
+              dan memajukan teknologi di Indonesia.
             </Paragraph>
           </Stack>
         </Box>
