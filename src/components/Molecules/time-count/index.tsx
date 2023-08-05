@@ -1,7 +1,7 @@
 'use client';
 
 import type { TextProps } from '@mantine/core';
-import { Card, Group, Stack, Text } from '@mantine/core';
+import { Card, SimpleGrid, Stack, Text } from '@mantine/core';
 import React, { useEffect, useState } from 'react';
 
 import Paragraph from '@/components/Molecules/paragraph';
@@ -40,39 +40,31 @@ export default function TimeCount(props: Props) {
   const { classes } = useStyles();
 
   return (
-    <Group className={classes.group}>
+    <SimpleGrid cols={4} spacing="xs">
       <Card className={classes.card}>
         <Stack spacing={0} className={classes.stack}>
-          <Text size="1.6rem" color="gray.7" weight={600}>
-            {count.days}
-          </Text>
+          <Text className={classes.title}>{count.days}</Text>
           <Paragraph>hari</Paragraph>
         </Stack>
       </Card>
       <Card className={classes.card}>
         <Stack spacing={0} className={classes.stack}>
-          <Text size="1.6rem" color="gray.7" weight={600}>
-            {count.hours}
-          </Text>
+          <Text className={classes.title}>{count.hours}</Text>
           <Paragraph>jam</Paragraph>
         </Stack>
       </Card>
       <Card className={classes.card}>
         <Stack spacing={0} className={classes.stack}>
-          <Text size="1.6rem" color="gray.7" weight={600}>
-            {count.minutes}
-          </Text>
+          <Text className={classes.title}>{count.minutes}</Text>
           <Paragraph>menit</Paragraph>
         </Stack>
       </Card>
       <Card className={classes.card}>
         <Stack spacing={0} className={classes.stack}>
-          <Text size="1.6rem" color="gray.7" weight={600}>
-            {count.seconds}
-          </Text>
+          <Text className={classes.title}>{count.seconds}</Text>
           <Paragraph>detik</Paragraph>
         </Stack>
       </Card>
-    </Group>
+    </SimpleGrid>
   );
 }

@@ -14,10 +14,13 @@ export const useStyles = createStyles((theme) => ({
     alignItems: 'center',
     width: '4rem',
   },
-  group: {
-    spacing: 'md',
+
+  title: {
+    fontSize: '1.6rem',
+    color: theme.colors.gray[7],
+    weight: 600,
     [theme.fn.smallerThan('sm')]: {
-      spacing: 4,
+      fontSize: '1.2rem',
     },
   },
 }));

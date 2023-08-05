@@ -22,27 +22,27 @@ export default function HomeBrandAlignments(props: Props) {
   return (
     <Container>
       <Stack spacing="6rem">
-        {/*{technofest.sponsors && (*/}
-        {/*  <Stack>*/}
-        {/*    <SectionHeader title="Sponsor" position="center" />*/}
-        {/*    <Flex wrap="wrap" justify="center" gap="xs" mt="1rem">*/}
-        {/*      {technofest.sponsors.map((sponsor, key) => (*/}
-        {/*        <Card withBorder key={key}>*/}
-        {/*          <Box h="4rem" w="100%">*/}
-        {/*            <Box component={Image} w="100%" h="100%" src={sponsor.path} alt={sponsor.name} width={80} height={80} />*/}
-        {/*          </Box>*/}
-        {/*        </Card>*/}
-        {/*      ))}*/}
-        {/*    </Flex>*/}
-        {/*  </Stack>*/}
-        {/*)}*/}
+        {technofest.sponsors && (
+          <Stack>
+            <SectionHeader title="Sponsor" position="center" />
+            <Flex wrap="wrap" justify="center" gap="xs" mt="1rem">
+              {technofest.sponsors.map((sponsor, key) => (
+                <Card withBorder key={key}>
+                  <Box h="auto" maw="24rem">
+                    <Box component={Image} w="100%" h="100%" src={sponsor.path} alt={sponsor.name} width={420} height={420} />
+                  </Box>
+                </Card>
+              ))}
+            </Flex>
+          </Stack>
+        )}
         <Stack>
           <SectionHeader title="Media Partner" position="center" />
           <Flex wrap="wrap" justify="center" gap="xs" mt="1rem">
             {technofest.medparts.map((medpart, key) => (
               <Card withBorder key={key}>
                 <Box h="4rem" w="100%">
-                  <Box component={Image} w="100%" h="100%" src={medpart.path} alt={medpart.name} width={160} height={160} />
+                  <Box component={Image} w="100%" h="100%" src={medpart.path} alt={medpart.name} width={240} height={240} />
                 </Box>
               </Card>
             ))}

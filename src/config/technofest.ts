@@ -88,7 +88,16 @@ export const technofest = {
 
   textTransformers: ['Technofest.', '2023.', 'Himasisko.', 'Green.', 'Technology.', 'Digital.', 'Innovation.', 'World.'],
 
-  sponsors: [],
+  sponsors: [
+    {
+      name: 'Niagahoster',
+      path: '/images/sponsors/sponsor_1.png',
+    },
+    {
+      name: 'Dicoding',
+      path: '/images/sponsors/sponsor_2.png',
+    },
+  ],
 
   medparts: [
     {
@@ -105,11 +114,11 @@ export const technofest = {
     },
     {
       name: '',
-      path: '/images/medparts/medpart_4.png',
+      path: '/images/medparts/medpart_4.jpg',
     },
     {
       name: '',
-      path: '/images/medparts/medpart_5.jpg',
+      path: '/images/medparts/medpart_5.png',
     },
     {
       name: '',
@@ -161,11 +170,11 @@ export const technofest = {
     },
     {
       name: '',
-      path: '/images/medparts/medpart_18.jpg',
+      path: '/images/medparts/medpart_18.png',
     },
     {
       name: '',
-      path: '/images/medparts/medpart_19.png',
+      path: '/images/medparts/medpart_19.jpg',
     },
     {
       name: '',
@@ -173,7 +182,7 @@ export const technofest = {
     },
     {
       name: '',
-      path: '/images/medparts/medpart_21.jpg',
+      path: '/images/medparts/medpart_21.png',
     },
     {
       name: '',
@@ -181,7 +190,11 @@ export const technofest = {
     },
     {
       name: '',
-      path: '/images/medparts/medpart_23.png',
+      path: '/images/medparts/medpart_23.jpg',
+    },
+    {
+      name: '',
+      path: '/images/medparts/medpart_24.png',
     },
   ],
 };
