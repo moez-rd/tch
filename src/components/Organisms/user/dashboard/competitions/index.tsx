@@ -55,7 +55,7 @@ export default function DashboardCompetitions(props: Props) {
                   </Group>
                   <Avatar.Group mt="sm">
                     {registration.users?.map((user) => (
-                      <Avatar src={user.avatar} radius="xl" size="sm" key={user.id} color="green" bg="gray.3">
+                      <Avatar key={user.id} src={user.avatar} radius="xl" size="sm" color="green" bg="gray.3">
                         {getFirstLetters(user.name)}
                       </Avatar>
                     ))}

@@ -15,7 +15,7 @@ export default function HomeLoading() {
       <Container small>
         <Stack>
           {[...Array(10)].map((i) => (
-            <Skeleton height="4rem" key={i} radius="md" />
+            <Skeleton key={i} height="4rem" radius="md" />
           ))}
         </Stack>
       </Container>

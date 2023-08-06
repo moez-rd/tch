@@ -57,7 +57,6 @@ export const useCreateRegistration = (requiredTeamName: boolean = false) => {
       }
     } else {
       userCreateRegistrationByEventCodename(getClientSanctumToken() as string, eventCodename).then((res) => {
-        console.log(res);
         setRegistrationModal((prev) => {
           return {
             ...prev,

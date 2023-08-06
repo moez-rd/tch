@@ -27,7 +27,7 @@ export default function HomeBrandAlignments(props: Props) {
             <SectionHeader title="Sponsor" position="center" />
             <Flex wrap="wrap" justify="center" gap="xs" mt="1rem">
               {technofest.sponsors.map((sponsor, key) => (
-                <Card withBorder key={key}>
+                <Card key={key} withBorder>
                   <Box h="auto" maw="24rem">
                     <Box component={Image} w="100%" h="100%" src={sponsor.path} alt={sponsor.name} width={420} height={420} />
                   </Box>
@@ -40,7 +40,7 @@ export default function HomeBrandAlignments(props: Props) {
           <SectionHeader title="Media Partner" position="center" />
           <Flex wrap="wrap" justify="center" gap="xs" mt="1rem">
             {technofest.medparts.map((medpart, key) => (
-              <Card withBorder key={key}>
+              <Card key={key} withBorder>
                 <Box h="4rem" w="100%">
                   <Box component={Image} w="100%" h="100%" src={medpart.path} alt={medpart.name} width={240} height={240} />
                 </Box>

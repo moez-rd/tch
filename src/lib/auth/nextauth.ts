@@ -10,6 +10,9 @@ import { attempt, login, userGetCurrent } from '@/lib/fetch/v1';
 import type { ResponseData, User } from '@/types/technofest';
 
 export const options: AuthOptions = {
+  session: {
+    strategy: 'jwt',
+  },
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID as string,
@@ -63,10 +66,15 @@ export const options: AuthOptions = {
         return false;
       }
 
-      cookies().set('sanctum-token', res.data?.access_token as string, { secure: true, sameSite: 'lax' });
+      cookies().set('sanctum-token', res.data?.access_token as string, {
+        secure: true,
+        sameSite: 'lax',
+        maxAge: 30 * 24 * 60 * 60,
+      });
 
       return true;
     },
+
     async session({ session }) {
       const res: ResponseData<User> = await userGetCurrent(getServerSanctumToken() as string);
 
@@ -76,6 +84,7 @@ export const options: AuthOptions = {
       return session;
     },
   },
+
   events: {
     async signOut() {
       cookies().set({

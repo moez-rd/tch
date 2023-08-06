@@ -51,7 +51,7 @@ export default function LayoutHeaderDropdowm(props: Props) {
 
         <SimpleGrid cols={1} spacing={0}>
           {links.map((link) => (
-            <UnstyledButton component={Link} href={link.link} className={classes.subLink} key={link.label}>
+            <UnstyledButton key={link.label} component={Link} href={link.link} className={classes.subLink}>
               <Group noWrap align="flex-start">
                 <div>
                   <Text size="lg" fw={500} className={classes.subLinkLabel}>

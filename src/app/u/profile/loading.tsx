@@ -17,9 +17,9 @@ export default function HomeLoading() {
           <Skeleton height="2rem" maw="8rem" radius="md" />
           <Stack>
             {[...Array(10)].map((i) => (
-              <Stack>
-                <Skeleton height="1rem" maw="20rem" key={i} radius="md" />
-                <Skeleton height="2rem" key={i} radius="md" />
+              <Stack key={i}>
+                <Skeleton height="1rem" maw="20rem" radius="md" />
+                <Skeleton height="2rem" radius="md" />
               </Stack>
             ))}
           </Stack>

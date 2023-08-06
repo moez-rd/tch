@@ -30,7 +30,7 @@ export default function EventContactPersons(props: Props) {
       <SectionHeader title="Narahubung" subtitle="Narahubung" position="center" />
       <Stack mt="2rem">
         {contactPersons.map((contactPerson) => (
-          <Card withBorder key={contactPerson.id}>
+          <Card key={contactPerson.id} withBorder>
             <Stack align="center" spacing="0">
               <Title order={3} color="gray.7" size="lg">
                 {contactPerson.name}

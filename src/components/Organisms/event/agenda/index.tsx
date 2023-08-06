@@ -29,7 +29,7 @@ export default function EventAgenda(props: Props) {
           <SectionHeader title="Agenda" subtitle="Agenda" position="center" />
           <Timeline active={100} color="green" bulletSize={26} mt="2rem">
             {milestones.map((milestone) => (
-              <TimelineItem bullet={<IconStack size={16} spacing={0} key={milestone.id} />}>
+              <TimelineItem key={milestone.id} bullet={<IconStack size={16} spacing={0} />}>
                 <Text color="green.7" size="xs" ff="monospace" weight={600}>
                   {formatDate(milestone.date)}
                 </Text>

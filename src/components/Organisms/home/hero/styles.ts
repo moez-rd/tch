@@ -6,8 +6,8 @@ export const useStyles = createStyles((theme) => ({
     // color: theme.colors.gray[9],
 
     backgroundColor: theme.colors.gray[9],
-    '-webkit-background-clip': 'text',
-    '-webkit-text-fill-color': 'transparent',
+    WebkitBackgroundClip: 'text',
+    WebkitTextFillColor: 'transparent',
 
     [theme.fn.smallerThan('sm')]: {
       fontSize: '3rem',

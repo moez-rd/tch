@@ -39,7 +39,6 @@ export const useRegister = () => {
 
       if (form.isValid()) {
         register(form.values.name, form.values.email, form.values.password).then((res) => {
-          console.log(res);
           if (res.status === 409 && res.error_code === ErrorCode.EMAIL_ALREADY_EXISTS) {
             setError('Email telah diambil.');
             setLoading(false);
