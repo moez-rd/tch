@@ -1,6 +1,6 @@
 'use client';
 
-import { Alert, Anchor, Button, Divider, Group, Paper, PasswordInput, Stack, Text, TextInput } from '@mantine/core';
+import { Alert, Anchor, Button, Divider, Group, Paper, PasswordInput, Stack, Text, TextInput, Title } from '@mantine/core';
 import { IconBrandGithub, IconBrandGoogle } from '@tabler/icons-react';
 import Link from 'next/link';
 
@@ -26,9 +26,9 @@ export default function AuthLogin(props: Props) {
   return (
     <Container>
       <Paper mx="auto" mt="10rem" radius="md" p="xl" withBorder maw="28rem">
-        <Text size="lg" weight={500}>
+        <Title order={1} size="lg" weight={500}>
           Login dengan
-        </Text>
+        </Title>
 
         <Group grow mb="md" mt="md">
           <Button onClick={() => handleLogin('google')} variant="default" color="gray" leftIcon={<IconBrandGoogle />}>
