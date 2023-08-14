@@ -19,10 +19,6 @@ export const useStyles = createStyles((theme) => ({
       alignItems: 'center',
       width: '100%',
     },
-
-    ...theme.fn.hover({
-      backgroundColor: theme.colors.gray[0],
-    }),
   },
 
   subLink: {

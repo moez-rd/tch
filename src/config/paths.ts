@@ -16,4 +16,6 @@ export const paths = {
   eventDetail: '/events/:eventCodename',
 
   faqs: '/faqs',
+
+  merchandise: '/merchandise',
 };

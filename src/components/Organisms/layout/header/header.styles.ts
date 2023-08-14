@@ -18,10 +18,6 @@ export const useStyles = createStyles((theme) => ({
       alignItems: 'center',
       width: '100%',
     },
-
-    ...theme.fn.hover({
-      backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[0],
-    }),
   },
 
   hiddenMobile: {
