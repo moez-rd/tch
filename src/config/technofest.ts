@@ -97,6 +97,10 @@ export const technofest = {
       name: 'Dicoding',
       path: '/images/sponsors/sponsor_2.png',
     },
+    {
+      name: 'IDCloudHost',
+      path: '/images/sponsors/sponsor_3.png',
+    },
   ],
 
   medparts: [
