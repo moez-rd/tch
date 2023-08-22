@@ -110,6 +110,10 @@ export default function MerchandisePage(props: Props) {
     setMerchandiseAmounts(updatedMerchandiseAmounts);
   };
 
+  const getTotalPrice = () => {
+    return merchandiseAmounts.map((value) => value.subtotal).reduce((a, b) => a + b, 0);
+  };
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setSuccess('');
@@ -126,6 +130,7 @@ export default function MerchandisePage(props: Props) {
         formData.append('nama', form.values.name);
         formData.append('whatsapp', form.values.whatsapp);
         formData.append('address', form.values.address);
+        formData.append('total harga', `Rp${getTotalPrice().toLocaleString('id-ID')}`);
         formData.append('bukti pembayaran', name);
         merchandiseAmounts.forEach((item) => {
           item.variants.forEach((variant) => {
@@ -149,9 +154,6 @@ export default function MerchandisePage(props: Props) {
     } else {
       setLoading(false);
     }
-  };
-  const getTotalPrice = () => {
-    return merchandiseAmounts.map((value) => value.subtotal).reduce((a, b) => a + b, 0);
   };
 
   useEffect(() => {
@@ -238,7 +240,7 @@ export default function MerchandisePage(props: Props) {
           </CardListBase>
 
           <CardListItem>
-            <Title order={2}>Form Pesanan</Title>
+            <Title order={2}>Form Pre-Order</Title>
             <Paragraph>Pre-Order Merchandise Technofest 2023</Paragraph>
             <Paragraph>Pemesanan 14 Agustus - 6 September</Paragraph>
 
@@ -337,8 +339,6 @@ export default function MerchandisePage(props: Props) {
                     {...form.getInputProps('proof')}
                     sx={(theme) => ({ input: { '&:focus-within': { borderColor: theme.colors.gray[3] } } })}
                   />
-
-                  <input type="hidden" name="total" value={`Rp${getTotalPrice().toLocaleString('id-ID')}`} />
 
                   <input type="hidden" name="total" value={`Rp${getTotalPrice().toLocaleString('id-ID')}`} />
                   <Text weight={500}>Total</Text>
