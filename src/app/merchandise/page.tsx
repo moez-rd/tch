@@ -163,6 +163,8 @@ export default function MerchandisePage(props: Props) {
           router.refresh();
         });
       });
+    } else {
+      setLoading(false);
     }
   };
   const getTotalPrice = () => {
