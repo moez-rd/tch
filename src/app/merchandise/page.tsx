@@ -79,23 +79,6 @@ export default function MerchandisePage(props: Props) {
     const { price } = merchandises.filter((m) => m.name === merchandiseName)[0];
     const sortedPrice = price.sort((a, b) => b.pcs - a.pcs);
 
-    // const updatedMerchandiseAmounts = merchandiseAmounts.map((merchandiseAmount) =>
-    //   merchandiseAmount.name === merchandiseName
-    //     ? {
-    //         ...merchandiseAmount,
-    //         subtotal: calculateSubtotalPrice(newAmount, sortedPrice),
-    //         variants: merchandiseAmount.variants.map((variant) =>
-    //           variant.name === merchandiseName
-    //             ? {
-    //                 ...variant,
-    //                 amount: newAmount,
-    //               }
-    //             : variant
-    //         ),
-    //       }
-    //     : merchandiseAmount
-    // );
-
     const updatedMerchandiseVariantAmounts = merchandiseAmounts.map((merchandiseAmount) =>
       merchandiseAmount.name === merchandiseName
         ? {
@@ -244,8 +227,8 @@ export default function MerchandisePage(props: Props) {
                 <List.Item>
                   <Paragraph>
                     Untuk informasi lebih lanjut, Kamu dapat menghubungi&nbsp;
-                    <Box component={Link} href="https://wa.me/6281367436851">
-                      6281367436851
+                    <Box component={Link} href="https://wa.me/6283802532272">
+                      083802532272
                     </Box>
                     &nbsp; a.n. Ika Putri Aprilia.
                   </Paragraph>
