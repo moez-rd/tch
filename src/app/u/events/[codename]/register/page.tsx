@@ -15,7 +15,7 @@ import RegisterRegistrantInformation from '@/components/Organisms/user/register/
 import RegisterWhatsappGroup from '@/components/Organisms/user/register/whatsapp-group';
 import { appConfig } from '@/config/app';
 import { technofest } from '@/config/technofest';
-import { EventRegistrationRole, EventType, PaymentStatus } from '@/enums/constants';
+import { EventRegistrationRole, EventType, ParticipationMethod, PaymentStatus } from '@/enums/constants';
 import { ErrorCode } from '@/enums/error-code';
 import { options } from '@/lib/auth/nextauth';
 import { redirectIfNotAuthenticated } from '@/lib/auth/redirect';
@@ -64,6 +64,7 @@ export default async function RegisterPage(props: Props) {
   }
 
   const competition = registration.data?.event?.eventable_type === EventType.COMPETITION ? (registration.data?.event as Event<Competition>) : undefined;
+  const seminar = registration.data?.event?.eventable_type === EventType.SEMINAR ? (registration.data?.event as Event<Seminar>) : undefined;
 
   const session = await getServerSession(options);
 
@@ -81,7 +82,10 @@ export default async function RegisterPage(props: Props) {
 
       <RegistrationStepper>
         <RegistrationStepperItem bullet={<IconTicket size={16} />} title="Informasi Event">
-          <RegisterEventInformation event={registration.data?.event as Event<Competition | Seminar>} />
+          <RegisterEventInformation
+            event={registration.data?.event as Event<Competition | Seminar>}
+            participationMethod={registration.data?.participation_method as number}
+          />
         </RegistrationStepperItem>
 
         <RegistrationStepperItem bullet={<IconUser size={16} />} title={`Informasi ${maxParticipants === 1 ? 'Peserta' : 'Tim'}`}>
@@ -99,10 +103,17 @@ export default async function RegisterPage(props: Props) {
           <RegistrationStepperItem bullet={<IconCash size={16} />} title="Pembayaran">
             <RegisterPayment
               payment={registration.data.event_registration_payment}
-              price={registration.data.event?.price as number}
+              price={
+                seminar
+                  ? registration.data.participation_method === ParticipationMethod.OFFLINE
+                    ? (seminar.eventable?.offline_price as number)
+                    : (seminar.eventable?.online_price as number)
+                  : (registration.data.event?.price as number)
+              }
               registrationUid={registration.data.uid}
               confirmed={registration.data.confirmed}
               max_participants={maxParticipants}
+              eventType={registration.data.event?.eventable_type as EventType}
             />
           </RegistrationStepperItem>
         )}

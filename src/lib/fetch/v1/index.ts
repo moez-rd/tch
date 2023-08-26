@@ -194,14 +194,18 @@ export const userGetRegistrationByEventCodename = async (token: string, codename
  *
  * @param token
  * @param codename
- * @param teamName
+ * @param body
  */
-export const userCreateRegistrationByEventCodename = async (token: string, codename: string, teamName?: string): Promise<ResponseData<EventRegistration>> => {
+export const userCreateRegistrationByEventCodename = async (
+  token: string,
+  codename: string,
+  body?: { teamName?: string; participationMethod?: string }
+): Promise<ResponseData<EventRegistration>> => {
   await csrf();
 
   const res = await client.post(
     `/api/v1/user/events/${codename}/registration`,
-    { name: teamName },
+    { name: body!.teamName, participation_method: body!.participationMethod },
     {
       headers: {
         Authorization: `Bearer ${token}`,

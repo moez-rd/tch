@@ -5,13 +5,15 @@ import { Stack } from '@mantine/core';
 import CardListItem from '@/components/Molecules/card-list-item';
 import CardListItemDescription from '@/components/Molecules/card-list-item-description';
 import CardListItemTitle from '@/components/Molecules/card-list-item-title';
-import { EventType } from '@/enums/constants';
+import { EventType, ParticipationMethod } from '@/enums/constants';
 import { formatPrice } from '@/lib/utils';
+import { participationMethodToString } from '@/lib/utils/converter';
 import type { Competition, Event, Seminar } from '@/types/technofest';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 interface Props {
   event: Event<Seminar | Competition>;
+  participationMethod: ParticipationMethod;
 }
 
 /**
@@ -22,9 +24,10 @@ interface Props {
  */
 export default function RegisterEventInformation(props: Props) {
   // eslint-disable-next-line no-empty-pattern
-  const { event } = props;
+  const { event, participationMethod } = props;
 
   const competition = event.eventable_type === EventType.COMPETITION ? (event as Event<Competition>) : undefined;
+  const seminar = event.eventable_type === EventType.SEMINAR ? (event as Event<Seminar>) : undefined;
 
   return (
     <CardListItem>
@@ -38,7 +41,14 @@ export default function RegisterEventInformation(props: Props) {
               : 'Individual'}
           </CardListItemDescription>
         )}
-        <CardListItemDescription>Biaya: {formatPrice(event.price!)}</CardListItemDescription>
+        <CardListItemDescription>
+          Biaya:&nbsp;
+          {seminar
+            ? participationMethod === ParticipationMethod.OFFLINE
+              ? `${formatPrice(seminar.eventable?.offline_price as number)} (${participationMethodToString(participationMethod)})`
+              : `${formatPrice(seminar.eventable?.online_price as number)} (${participationMethodToString(participationMethod)})`
+            : formatPrice(event.price!)}
+        </CardListItemDescription>
       </Stack>
     </CardListItem>
   );

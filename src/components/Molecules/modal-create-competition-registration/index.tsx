@@ -18,7 +18,7 @@ interface Props {}
  * @param props
  * @returns
  */
-export default function ModalCreateRegistration(props: Props) {
+export default function ModalCreateCompetitionRegistration(props: Props) {
   // eslint-disable-next-line no-empty-pattern
   const {} = props;
 

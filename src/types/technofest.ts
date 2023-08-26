@@ -117,6 +117,7 @@ export interface EventRegistration {
   uid: string;
   name?: string;
   confirmed: number;
+  participation_method?: number;
   event_id: string;
   created_at: string;
   updated_at: string;
@@ -146,6 +147,8 @@ export interface EventRegistrationPayment {
 export interface Seminar {
   id: string;
   theme?: string;
+  offline_price?: number;
+  online_price?: number;
   created_at: string;
   updated_at: string;
 

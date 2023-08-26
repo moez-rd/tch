@@ -32,6 +32,19 @@ export const technofest = {
     },
   ],
 
+  seminarPayments: [
+    {
+      name: 'Nabila Sintia',
+      bank: 'Mandiri',
+      number: '1130017280805',
+    },
+    {
+      name: 'Nabila Sintia',
+      bank: 'Dana',
+      number: '0895605465766',
+    },
+  ],
+
   footerLinks: [
     {
       title: 'Technofest',

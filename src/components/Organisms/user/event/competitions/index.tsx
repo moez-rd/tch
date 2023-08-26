@@ -11,7 +11,7 @@ import CardListBase from '@/components/Molecules/card-list-base';
 import CardListItem from '@/components/Molecules/card-list-item';
 import CardListItemDescription from '@/components/Molecules/card-list-item-description';
 import CardListItemTitle from '@/components/Molecules/card-list-item-title';
-import ModalCreateRegistration from '@/components/Molecules/modal-create-registration';
+import ModalCreateCompetitionRegistration from '@/components/Molecules/modal-create-competition-registration';
 import Paragraph from '@/components/Molecules/paragraph';
 import SectionHeader from '@/components/Molecules/section-header';
 import { paths } from '@/config/paths';
@@ -120,7 +120,7 @@ export default function EventCompetitions(props: Props) {
         )}
       </CardListBase>
 
-      <ModalCreateRegistration />
+      <ModalCreateCompetitionRegistration />
     </Container>
   );
 }

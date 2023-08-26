@@ -2,17 +2,20 @@
 
 import { Badge, Button, Flex, Group, Stack, useMantineTheme } from '@mantine/core';
 import { useMediaQuery } from '@mantine/hooks';
+import { IconPointFilled } from '@tabler/icons-react';
 import Link from 'next/link';
+import { useSetRecoilState } from 'recoil';
 
 import Container from '@/components/Atoms/container';
 import CardListBase from '@/components/Molecules/card-list-base';
 import CardListItem from '@/components/Molecules/card-list-item';
 import CardListItemDescription from '@/components/Molecules/card-list-item-description';
 import CardListItemTitle from '@/components/Molecules/card-list-item-title';
+import ModalCreateSeminarRegistration from '@/components/Molecules/modal-create-seminar-registration';
 import Paragraph from '@/components/Molecules/paragraph';
 import SectionHeader from '@/components/Molecules/section-header';
 import { paths } from '@/config/paths';
-import { useCreateRegistration } from '@/lib/hooks/useCreateRegistration';
+import { createSeminarRegistrationModalState } from '@/lib/recoil/createSeminarRegistrationAtom';
 import { formatPrice } from '@/lib/utils';
 import { route } from '@/lib/utils/path';
 import type { Event, Seminar } from '@/types/technofest';
@@ -31,10 +34,13 @@ export default function EventSeminars(props: Props) {
   // eslint-disable-next-line no-empty-pattern
   const { seminars } = props;
 
-  const { createRegistration, isLoading } = useCreateRegistration();
+  const setCreateSeminarEventRegistration = useSetRecoilState(createSeminarRegistrationModalState);
 
   const handleRegisterButtonClick = (seminar: Event<Seminar>) => {
-    createRegistration(seminar.codename);
+    setCreateSeminarEventRegistration({
+      opened: true,
+      eventCodename: seminar.codename,
+    });
   };
 
   const theme = useMantineTheme();
@@ -58,7 +64,9 @@ export default function EventSeminars(props: Props) {
                   )}
                 </Group>
                 <Group spacing={6}>
-                  <CardListItemDescription>{formatPrice(seminar.price || 0)}</CardListItemDescription>
+                  <CardListItemDescription>Offline: {formatPrice(seminar.eventable?.offline_price || 0)}</CardListItemDescription>
+                  <IconPointFilled size="10" />
+                  <CardListItemDescription>Online: {formatPrice(seminar.eventable?.online_price || 0)}</CardListItemDescription>
                 </Group>
               </Stack>
               <Group spacing="xs" sx={{ alignSelf: 'end' }}>
@@ -85,7 +93,7 @@ export default function EventSeminars(props: Props) {
                     Detail
                   </Button>
                 ) : (
-                  <Button px="md" radius="xl" compact onClick={() => handleRegisterButtonClick(seminar)} loading={isLoading(seminar.codename)}>
+                  <Button px="md" radius="xl" compact onClick={() => handleRegisterButtonClick(seminar)}>
                     Ikuti
                   </Button>
                 )}
@@ -100,6 +108,8 @@ export default function EventSeminars(props: Props) {
           </Paragraph>
         )}
       </CardListBase>
+
+      <ModalCreateSeminarRegistration />
     </Container>
   );
 }

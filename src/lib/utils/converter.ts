@@ -1,4 +1,4 @@
-import { PaymentStatus, SeminarCastRole } from '@/enums/constants';
+import { ParticipationMethod, PaymentStatus, SeminarCastRole } from '@/enums/constants';
 
 export function seminarCastRoleToLabel(number: number | string): string | undefined {
   switch (Number(number)) {
@@ -48,4 +48,15 @@ export function paymentBankToColor(type: string): string | undefined {
     case 'BNI':
       return 'orange';
   }
+}
+
+export function participationMethodToString(number: number | string): string | undefined {
+  switch (Number(number)) {
+    case ParticipationMethod.ONLINE:
+      return 'Online';
+    case ParticipationMethod.OFFLINE:
+      return 'Offline';
+  }
+
+  return undefined;
 }

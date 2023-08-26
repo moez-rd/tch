@@ -42,7 +42,7 @@ export const useCreateRegistration = (requiredTeamName: boolean = false) => {
       form.validate();
 
       if (form.isValid()) {
-        userCreateRegistrationByEventCodename(getClientSanctumToken() as string, eventCodename, form.values.name).then(() => {
+        userCreateRegistrationByEventCodename(getClientSanctumToken() as string, eventCodename, { teamName: form.values.name }).then(() => {
           setRegistrationModal((prev) => {
             return {
               ...prev,

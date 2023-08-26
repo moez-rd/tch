@@ -7,7 +7,7 @@ import { IconUpload } from '@tabler/icons-react';
 
 import CardListItem from '@/components/Molecules/card-list-item';
 import { technofest } from '@/config/technofest';
-import { PaymentStatus } from '@/enums/constants';
+import { EventType, PaymentStatus } from '@/enums/constants';
 import { useUploadPaymentProof } from '@/lib/hooks/useUploadPaymentProof';
 import { formatPrice } from '@/lib/utils';
 import { paymentBankToColor } from '@/lib/utils/converter';
@@ -19,6 +19,7 @@ interface Props {
   confirmed: number;
   price: number;
   max_participants: number;
+  eventType: EventType;
 }
 
 /**
@@ -29,7 +30,7 @@ interface Props {
  */
 export default function RegisterPayment(props: Props) {
   // eslint-disable-next-line no-empty-pattern
-  const { payment, price, registrationUid, confirmed, max_participants } = props;
+  const { payment, price, registrationUid, confirmed, max_participants, eventType } = props;
 
   const { form, loading, handleSubmit } = useUploadPaymentProof(payment.id, registrationUid);
 
@@ -64,19 +65,36 @@ export default function RegisterPayment(props: Props) {
             </Text>{' '}
             melalui:
           </Text>
-          <Stack spacing="6">
-            {technofest.payments.map((item, key) => (
-              <Box key={key}>
-                <Group spacing={6}>
-                  <Badge variant="filled" color={paymentBankToColor(item.bank)}>
-                    {item.bank}
-                  </Badge>
-                  <Text weight={600}>{item.number}</Text>
-                  <Text color="gray.6">a.n.&nbsp;{item.name}</Text>
-                </Group>
-              </Box>
-            ))}
-          </Stack>
+          {eventType === EventType.COMPETITION && (
+            <Stack spacing="6">
+              {technofest.payments.map((item, key) => (
+                <Box key={key}>
+                  <Group spacing={6}>
+                    <Badge variant="filled" color={paymentBankToColor(item.bank)}>
+                      {item.bank}
+                    </Badge>
+                    <Text weight={600}>{item.number}</Text>
+                    <Text color="gray.6">a.n.&nbsp;{item.name}</Text>
+                  </Group>
+                </Box>
+              ))}
+            </Stack>
+          )}
+          {eventType === EventType.SEMINAR && (
+            <Stack spacing="6">
+              {technofest.seminarPayments.map((item, key) => (
+                <Box key={key}>
+                  <Group spacing={6}>
+                    <Badge variant="filled" color={paymentBankToColor(item.bank)}>
+                      {item.bank}
+                    </Badge>
+                    <Text weight={600}>{item.number}</Text>
+                    <Text color="gray.6">a.n.&nbsp;{item.name}</Text>
+                  </Group>
+                </Box>
+              ))}
+            </Stack>
+          )}
           <Stack>
             <Text>Unggah bukti pembayaran pada form di bawah ini dan tunggu konfirmasi dari panitia.</Text>
             <FileInput
