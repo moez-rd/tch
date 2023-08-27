@@ -53,13 +53,13 @@ export default function LayoutHeader(props: Props) {
     };
   });
 
-  const seminarLinks = seminars.map((seminar) => {
-    return {
-      label: seminar.name,
-      sublabel: seminar.description as string,
-      link: route(paths.eventDetail, { eventCodename: seminar.codename }),
-    };
-  });
+  // const seminarLinks = seminars.map((seminar) => {
+  //   return {
+  //     label: seminar.name,
+  //     sublabel: seminar.description as string,
+  //     link: route(paths.eventDetail, { eventCodename: seminar.codename }),
+  //   };
+  // });
 
   const toggleMobileNav = () => {
     setMobileNav((prev) => {
@@ -100,7 +100,7 @@ export default function LayoutHeader(props: Props) {
               </Link>
               <Group sx={{ height: '100%' }} spacing={0} className={classes.hiddenMobile}>
                 <LayoutHeaderDropdowm label="Kompetisi" links={competitionLinks} />
-                <LayoutHeaderDropdowm label="Seminar" links={seminarLinks} />
+                {/*<LayoutHeaderDropdowm label="Seminar" links={seminarLinks} />*/}
                 <LayoutHeaderLink label="Tentang" link="/#about" />
                 <LayoutHeaderLink label="Faqs" link={route(paths.faqs)} />
                 <Button compact radius="xl" px={0} mx={theme.spacing.md} variant="gradient" gradient={{ from: 'orange', to: 'red' }}>
@@ -129,7 +129,7 @@ export default function LayoutHeader(props: Props) {
           <Container>
             <Stack spacing={0} py={20}>
               <LayoutHeaderMobileSublink label="Kompetisi" links={competitionLinks} />
-              <LayoutHeaderMobileSublink label="Seminar" links={seminarLinks} />
+              {/*<LayoutHeaderMobileSublink label="Seminar" links={seminarLinks} />*/}
               <LayoutHeaderMobileLink label="Tentang" link="/#about" />
               <LayoutHeaderMobileLink label="Faqs" link={route(paths.faqs)} />
               <LayoutHeaderMobileLink label="Merchandise" link={route(paths.merchandise)} />
