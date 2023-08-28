@@ -7,7 +7,7 @@ import LayoutFooter from '@/components/Organisms/layout/footer';
 import LayoutHeader from '@/components/Organisms/layout/header';
 import { appConfig } from '@/config/app';
 import { options } from '@/lib/auth/nextauth';
-import { competitionsGetAll, seminarsGetAll } from '@/lib/fetch/v1';
+import { competitionsGetAll } from '@/lib/fetch/v1';
 
 import Providers from './providers';
 
@@ -26,14 +26,14 @@ export default async function RootLayout(props: Props) {
   const session = await getServerSession(options);
 
   const competitions = await competitionsGetAll();
-  const seminars = await seminarsGetAll();
+  // const seminars = await seminarsGetAll();
 
   return (
     <html lang={appConfig.lang}>
       <body style={{ overflowX: 'hidden', width: '100vw' }}>
         <Providers>
           <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
-            <LayoutHeader session={session} competitions={competitions.data || []} seminars={seminars.data || []} />
+            <LayoutHeader session={session} competitions={competitions.data || []} />
             <main style={{ flexGrow: 10, paddingTop: 60 }}>{children}</main>
             <LayoutFooter />
           </div>
