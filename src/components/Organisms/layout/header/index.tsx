@@ -1,9 +1,11 @@
 'use client';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { Box, Burger, Button, Collapse, Group, Stack } from '@mantine/core';
+import { Alert, Box, Burger, Button, Collapse, Flex, Group, Stack, Text, Transition } from '@mantine/core';
+import { IconArrowRight } from '@tabler/icons-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import type { Session } from 'next-auth';
 import { useEffect, useState } from 'react';
 import { useRecoilState } from 'recoil';
@@ -37,9 +39,9 @@ interface Props {
  */
 export default function LayoutHeader(props: Props) {
   // eslint-disable-next-line no-empty-pattern
-  const { session, seminars, competitions } = props;
+  const { session, competitions } = props;
 
-  // const [mobileNavOpened, { toggle: toggleMobileNav }] = useDisclosure(false);
+  const pathName = usePathname();
 
   const [mobileNav, setMobileNav] = useRecoilState(mobileNavState);
   const { classes, theme } = useStyles();
@@ -52,14 +54,6 @@ export default function LayoutHeader(props: Props) {
       link: route(paths.eventDetail, { eventCodename: competition.codename }),
     };
   });
-
-  // const seminarLinks = seminars.map((seminar) => {
-  //   return {
-  //     label: seminar.name,
-  //     sublabel: seminar.description as string,
-  //     link: route(paths.eventDetail, { eventCodename: seminar.codename }),
-  //   };
-  // });
 
   const toggleMobileNav = () => {
     setMobileNav((prev) => {
@@ -91,6 +85,30 @@ export default function LayoutHeader(props: Props) {
         backgroundColor: `rgba(255, 255, 255, ${transparent || mobileNav.opened ? 0.85 : 0.0})`,
       }}
     >
+      {pathName === paths.home && (
+        <Transition mounted={!transparent} transition="slide-down" duration={100} timingFunction="ease">
+          {(styles) => (
+            <Box style={styles}>
+              <Alert color="violet" variant="filled" radius="0">
+                <Flex justify="center">
+                  <Box>
+                    <Text weight={600} span>
+                      Pendafaran seminar Technofest 2023 telah dibuka hingga 14 September 2023🎉🎉🎉.
+                    </Text>
+                    &nbsp;
+                    <Box component={Link} href={paths.userEvents} sx={{ color: 'white' }}>
+                      <Group display="inline-flex" spacing={0}>
+                        <Text span>Daftar</Text>
+                        <IconArrowRight size={16} />
+                      </Group>
+                    </Box>
+                  </Box>
+                </Flex>
+              </Alert>
+            </Box>
+          )}
+        </Transition>
+      )}
       <Box h={60} py="xs" sx={{ borderBottom: transparent || mobileNav.opened ? `1px solid ${theme.colors.gray[2]}` : '' }}>
         <Container>
           <Group position="apart" sx={{ height: '100%' }}>
@@ -123,7 +141,6 @@ export default function LayoutHeader(props: Props) {
           </Group>
         </Container>
       </Box>
-
       <Collapse in={mobileNav.opened}>
         <Box sx={{ borderBottom: `1px solid ${theme.colors.gray[2]}` }}>
           <Container>

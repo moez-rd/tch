@@ -31,7 +31,7 @@ export default function HomeHero(props: Props) {
   const { classes } = useStyles();
 
   const registrationTime = new Date() < technofest.registration_open_date ? technofest.registration_open_date : technofest.registration_close_date;
-  const registrationTimeTitle = new Date() < technofest.registration_open_date ? 'Pembukaan pendaftaran' : 'Penutupan pendaftaran';
+  const registrationTimeTitle = new Date() < technofest.registration_open_date ? 'Pembukaan pendaftaran' : 'Perpanjangan pendaftaran kompetisi';
 
   return (
     <Container>

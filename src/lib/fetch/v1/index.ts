@@ -205,7 +205,7 @@ export const userCreateRegistrationByEventCodename = async (
 
   const res = await client.post(
     `/api/v1/user/events/${codename}/registration`,
-    { name: body!.teamName, participation_method: body!.participationMethod },
+    { name: body?.teamName, participation_method: body?.participationMethod },
     {
       headers: {
         Authorization: `Bearer ${token}`,

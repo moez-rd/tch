@@ -1,7 +1,7 @@
 export const technofest = {
   registration_open_date: new Date('2023-08-07'),
 
-  registration_close_date: new Date('2023-08-30'),
+  registration_close_date: new Date('2023-09-04'),
 
   logo: '',
 
