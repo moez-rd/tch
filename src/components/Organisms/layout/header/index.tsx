@@ -21,14 +21,14 @@ import { paths } from '@/config/paths';
 import { technofest } from '@/config/technofest';
 import { mobileNavState } from '@/lib/recoil/mobileNavAtom';
 import { route } from '@/lib/utils/path';
-import type { Competition, Event, Seminar } from '@/types/technofest';
+import type { Competition, Event } from '@/types/technofest';
 
 import { useStyles } from './header.styles';
 
 interface Props {
   session: Session | null;
   competitions: Event<Competition>[];
-  seminars: Event<Seminar>[];
+  // seminars: Event<Seminar>[];
 }
 
 /**
