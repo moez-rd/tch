@@ -121,8 +121,9 @@ export default function LayoutHeader(props: Props) {
                 {/*<LayoutHeaderDropdowm label="Seminar" links={seminarLinks} />*/}
                 <LayoutHeaderLink label="Tentang" link="/#about" />
                 <LayoutHeaderLink label="Faqs" link={route(paths.faqs)} />
-                <Button compact radius="xl" px={0} mx={theme.spacing.md} variant="gradient" gradient={{ from: 'orange', to: 'red' }}>
-                  <LayoutHeaderLink label="Merchandise" link={route(paths.merchandise)} colorWhite />
+                <LayoutHeaderLink label="Merchandise" link={route(paths.merchandise)} />
+                <Button compact radius="xl" px={0} mx={theme.spacing.md} variant="gradient" gradient={{ from: 'violet', to: 'indigo' }}>
+                  <LayoutHeaderLink label="Seminar" link={route(paths.seminarDetail)} colorWhite />
                 </Button>
               </Group>
             </Group>
@@ -150,6 +151,7 @@ export default function LayoutHeader(props: Props) {
               <LayoutHeaderMobileLink label="Tentang" link="/#about" />
               <LayoutHeaderMobileLink label="Faqs" link={route(paths.faqs)} />
               <LayoutHeaderMobileLink label="Merchandise" link={route(paths.merchandise)} />
+              <LayoutHeaderMobileLink label="Seminar" link={route(paths.seminarDetail)} />
               <LayoutHeaderMobileAuth session={session} />
             </Stack>
           </Container>

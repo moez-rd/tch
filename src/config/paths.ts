@@ -15,6 +15,8 @@ export const paths = {
 
   eventDetail: '/events/:eventCodename',
 
+  seminarDetail: '/events/seminar',
+
   faqs: '/faqs',
 
   merchandise: '/merchandise',

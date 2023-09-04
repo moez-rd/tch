@@ -43,25 +43,25 @@ export default function TimeCount(props: Props) {
     <SimpleGrid cols={4} spacing="xs">
       <Card className={classes.card}>
         <Stack spacing={0} className={classes.stack}>
-          <Text className={classes.title}>{count.days}</Text>
+          <Text className={classes.title}>0</Text>
           <Paragraph>hari</Paragraph>
         </Stack>
       </Card>
       <Card className={classes.card}>
         <Stack spacing={0} className={classes.stack}>
-          <Text className={classes.title}>{count.hours}</Text>
+          <Text className={classes.title}>0</Text>
           <Paragraph>jam</Paragraph>
         </Stack>
       </Card>
       <Card className={classes.card}>
         <Stack spacing={0} className={classes.stack}>
-          <Text className={classes.title}>{count.minutes}</Text>
+          <Text className={classes.title}>0</Text>
           <Paragraph>menit</Paragraph>
         </Stack>
       </Card>
       <Card className={classes.card}>
         <Stack spacing={0} className={classes.stack}>
-          <Text className={classes.title}>{count.seconds}</Text>
+          <Text className={classes.title}>0</Text>
           <Paragraph>detik</Paragraph>
         </Stack>
       </Card>
