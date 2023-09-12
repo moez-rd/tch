@@ -16,7 +16,6 @@ import Paragraph from '@/components/Molecules/paragraph';
 import SectionHeader from '@/components/Molecules/section-header';
 import { paths } from '@/config/paths';
 import { createSeminarRegistrationModalState } from '@/lib/recoil/createSeminarRegistrationAtom';
-import { formatPrice } from '@/lib/utils';
 import { route } from '@/lib/utils/path';
 import type { Event, Seminar } from '@/types/technofest';
 
@@ -64,9 +63,9 @@ export default function EventSeminars(props: Props) {
                   )}
                 </Group>
                 <Group spacing={6}>
-                  <CardListItemDescription>Offline: {formatPrice(seminar.eventable?.offline_price || 0)}</CardListItemDescription>
+                  <CardListItemDescription>Great Leadership & Green Tech ala Gen Z</CardListItemDescription>
                   <IconPointFilled size="10" />
-                  <CardListItemDescription>Online: {formatPrice(seminar.eventable?.online_price || 0)}</CardListItemDescription>
+                  <CardListItemDescription>Biaya: gratis</CardListItemDescription>
                 </Group>
               </Stack>
               <Group spacing="xs" sx={{ alignSelf: 'end' }}>

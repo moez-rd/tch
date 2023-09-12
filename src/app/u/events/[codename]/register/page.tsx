@@ -15,7 +15,7 @@ import RegisterRegistrantInformation from '@/components/Organisms/user/register/
 import RegisterWhatsappGroup from '@/components/Organisms/user/register/whatsapp-group';
 import { appConfig } from '@/config/app';
 import { technofest } from '@/config/technofest';
-import { EventRegistrationRole, EventType, ParticipationMethod, PaymentStatus } from '@/enums/constants';
+import { EventRegistrationRole, EventType, PaymentStatus } from '@/enums/constants';
 import { ErrorCode } from '@/enums/error-code';
 import { options } from '@/lib/auth/nextauth';
 import { redirectIfNotAuthenticated } from '@/lib/auth/redirect';
@@ -99,17 +99,11 @@ export default async function RegisterPage(props: Props) {
           />
         </RegistrationStepperItem>
 
-        {registration.data?.event_registration_payment && currentUser?.event_registrant?.role !== EventRegistrationRole.MEMBER && (
+        {registration.data?.event_registration_payment && currentUser?.event_registrant?.role !== EventRegistrationRole.MEMBER && !seminar && (
           <RegistrationStepperItem bullet={<IconCash size={16} />} title="Pembayaran">
             <RegisterPayment
               payment={registration.data.event_registration_payment}
-              price={
-                seminar
-                  ? registration.data.participation_method === ParticipationMethod.OFFLINE
-                    ? (seminar.eventable?.offline_price as number)
-                    : (seminar.eventable?.online_price as number)
-                  : (registration.data.event?.price as number)
-              }
+              price={registration.data.event?.price as number}
               registrationUid={registration.data.uid}
               confirmed={registration.data.confirmed}
               max_participants={maxParticipants}
@@ -120,7 +114,7 @@ export default async function RegisterPage(props: Props) {
 
         {currentUser?.event_registrant?.role !== EventRegistrationRole.MEMBER && (
           <RegistrationStepperItem bullet={<IconBrandWhatsapp size={16} />} title="Grup WhatsApp">
-            <RegisterWhatsappGroup whatsapp={registration.data?.event?.group_link as string} paymentAccepted={paymentAccepted} />
+            <RegisterWhatsappGroup whatsapp={registration.data?.event?.group_link as string} paymentAccepted={paymentAccepted} seminar={seminar} />
           </RegistrationStepperItem>
         )}
 

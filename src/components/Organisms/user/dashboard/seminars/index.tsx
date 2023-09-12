@@ -1,6 +1,6 @@
 'use client';
 
-import { Avatar, Badge, Button, Flex, Group, Stack, Text } from '@mantine/core';
+import { Avatar, Button, Flex, Group, Stack, Text } from '@mantine/core';
 import Link from 'next/link';
 
 import Container from '@/components/Atoms/container';
@@ -12,7 +12,6 @@ import Paragraph from '@/components/Molecules/paragraph';
 import SectionHeader from '@/components/Molecules/section-header';
 import { paths } from '@/config/paths';
 import { getFirstLetters } from '@/lib/utils';
-import { paymentStatusToColor, paymentStatusToLabel } from '@/lib/utils/converter';
 import { route } from '@/lib/utils/path';
 import type { EventRegistration } from '@/types/technofest';
 
@@ -41,16 +40,7 @@ export default function DashboardSeminars(props: Props) {
               <Group position="apart" align="end">
                 <Stack spacing={0}>
                   <CardListItemTitle>{registration.event?.name}</CardListItemTitle>
-                  <CardListItemDescription>
-                    Status pembayaran:&nbsp;
-                    <Badge
-                      size="xs"
-                      variant="light"
-                      color={registration.event_registration_payment && paymentStatusToColor(registration.event_registration_payment?.status)}
-                    >
-                      {registration.event_registration_payment && paymentStatusToLabel(registration.event_registration_payment?.status)}
-                    </Badge>
-                  </CardListItemDescription>
+                  <CardListItemDescription>Great Leadership & Green Tech ala Gen Z</CardListItemDescription>
                   <Avatar.Group mt="sm">
                     {registration.users?.map((user) => (
                       <Avatar src={user.avatar} radius="xl" size="sm" key={user.id} color="green" bg="gray.3">

@@ -5,9 +5,8 @@ import { Stack } from '@mantine/core';
 import CardListItem from '@/components/Molecules/card-list-item';
 import CardListItemDescription from '@/components/Molecules/card-list-item-description';
 import CardListItemTitle from '@/components/Molecules/card-list-item-title';
-import { EventType, ParticipationMethod } from '@/enums/constants';
-import { formatPrice } from '@/lib/utils';
-import { participationMethodToString } from '@/lib/utils/converter';
+import type { ParticipationMethod } from '@/enums/constants';
+import { EventType } from '@/enums/constants';
 import type { Competition, Event, Seminar } from '@/types/technofest';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -42,12 +41,12 @@ export default function RegisterEventInformation(props: Props) {
           </CardListItemDescription>
         )}
         <CardListItemDescription>
-          Biaya:&nbsp;
-          {seminar
-            ? participationMethod === ParticipationMethod.OFFLINE
-              ? `${formatPrice(seminar.eventable?.offline_price as number)} (${participationMethodToString(participationMethod)})`
-              : `${formatPrice(seminar.eventable?.online_price as number)} (${participationMethodToString(participationMethod)})`
-            : formatPrice(event.price!)}
+          Biaya:&nbsp;Gratis
+          {/*{seminar*/}
+          {/*  ? participationMethod === ParticipationMethod.OFFLINE*/}
+          {/*    ? `${formatPrice(seminar.eventable?.offline_price as number)} (${participationMethodToString(participationMethod)})`*/}
+          {/*    : `${formatPrice(seminar.eventable?.online_price as number)} (${participationMethodToString(participationMethod)})`*/}
+          {/*  : formatPrice(event.price!)}*/}
         </CardListItemDescription>
       </Stack>
     </CardListItem>

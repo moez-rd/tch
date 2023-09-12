@@ -6,10 +6,12 @@ import { IconBrandWhatsapp } from '@tabler/icons-react';
 import Link from 'next/link';
 
 import CardListItem from '@/components/Molecules/card-list-item';
+import type { Event, Seminar } from '@/types/technofest';
 
 interface Props {
   whatsapp: string;
   paymentAccepted: boolean;
+  seminar: Event<Seminar> | undefined;
 }
 
 /**
@@ -20,11 +22,11 @@ interface Props {
  */
 export default function RegisterWhatsappGroup(props: Props) {
   // eslint-disable-next-line no-empty-pattern
-  const { whatsapp, paymentAccepted } = props;
+  const { whatsapp, paymentAccepted, seminar } = props;
 
   return (
     <CardListItem>
-      {!paymentAccepted ? (
+      {!paymentAccepted && !seminar ? (
         <Stack spacing="xs">
           <Alert title="Perhatian!" color="orange" mb="sm">
             Silakan unggah bukti pembayaran dan tunggu konfirmasi dari panitia sebelum memasuki grup WhatsApp.
