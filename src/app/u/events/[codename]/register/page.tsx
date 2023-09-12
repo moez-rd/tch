@@ -84,7 +84,7 @@ export default async function RegisterPage(props: Props) {
         <RegistrationStepperItem bullet={<IconTicket size={16} />} title="Informasi Event">
           <RegisterEventInformation
             event={registration.data?.event as Event<Competition | Seminar>}
-            // participationMethod={registration.data?.participation_method as number}
+            participationMethod={registration.data?.participation_method as number}
           />
         </RegistrationStepperItem>
 
