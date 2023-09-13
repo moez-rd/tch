@@ -1,7 +1,6 @@
 'use client';
 
-import { Alert, Button, Card, FileInput, rem, Select, Stack, Text, TextInput } from '@mantine/core';
-import { IconUpload } from '@tabler/icons-react';
+import { Alert, Button, Card, Select, Stack, Text, TextInput } from '@mantine/core';
 
 import Container from '@/components/Atoms/container';
 import SectionHeader from '@/components/Molecules/section-header';
@@ -31,7 +30,7 @@ export default function ProfileProfile(props: Props) {
         <form onSubmit={(event) => handleSubmit(event)}>
           <Stack>
             <TextInput
-              description="Gunakan nama yang sesuai dengan kartu tanda siswa/mahasiswa"
+              // description="Gunakan nama yang sesuai dengan kartu tanda siswa/mahasiswa"
               label="Nama"
               placeholder="Nama"
               {...form.getInputProps('name')}
@@ -40,31 +39,31 @@ export default function ProfileProfile(props: Props) {
             <TextInput label="Email" disabled placeholder="Email" {...form.getInputProps('email')} />
 
             <TextInput
-              description="Masukkan asal sekolah/universitas. Misal: Universitas Sriwijaya"
+              // description="Masukkan asal sekolah/universitas. Misal: Universitas Sriwijaya"
               label="Asal Instansi"
               placeholder="Asal Instansi"
               {...form.getInputProps('user_profile.institution')}
             />
 
-            <Select
-              label="Status"
-              placeholder="Pilih status"
-              data={[
-                { value: '0', label: 'Siswa' },
-                { value: '1', label: 'Mahasiswa' },
-              ]}
-              {...form.getInputProps('user_profile.education_level')}
-            />
+            {/*<Select*/}
+            {/*  label="Status"*/}
+            {/*  placeholder="Pilih status"*/}
+            {/*  data={[*/}
+            {/*    { value: '0', label: 'Siswa' },*/}
+            {/*    { value: '1', label: 'Mahasiswa' },*/}
+            {/*  ]}*/}
+            {/*  {...form.getInputProps('user_profile.education_level')}*/}
+            {/*/>*/}
 
-            <TextInput label="NIM/NISN" placeholder="NIM/NISN" {...form.getInputProps('user_profile.id_number')} />
+            {/*<TextInput label="NIM/NISN" placeholder="NIM/NISN" {...form.getInputProps('user_profile.id_number')} />*/}
 
-            <FileInput
-              icon={<IconUpload size={rem(14)} />}
-              description="Unggah kartu tanda siswa/mahasiswa"
-              label="Kartu tanda siswa/mahasiswa"
-              placeholder="Kartu tanda siswa/mahasiswa"
-              {...form.getInputProps('user_profile.id_card_image')}
-            />
+            {/*<FileInput*/}
+            {/*  icon={<IconUpload size={rem(14)} />}*/}
+            {/*  description="Unggah kartu tanda siswa/mahasiswa"*/}
+            {/*  label="Kartu tanda siswa/mahasiswa"*/}
+            {/*  placeholder="Kartu tanda siswa/mahasiswa"*/}
+            {/*  {...form.getInputProps('user_profile.id_card_image')}*/}
+            {/*/>*/}
 
             <Select
               label="Jenis kelamin"
