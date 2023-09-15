@@ -93,7 +93,7 @@ export default function LayoutHeader(props: Props) {
                 <Flex justify="center">
                   <Box>
                     <Text weight={600} span>
-                      Pendafaran seminar Technofest 2023 telah dibuka hingga 14 September 2023🎉🎉🎉.
+                      Pendafaran seminar Technofest 2023 telah dibuka🎉🎉🎉.
                     </Text>
                     &nbsp;
                     <Box component={Link} href={paths.userEvents} sx={{ color: 'white' }}>
