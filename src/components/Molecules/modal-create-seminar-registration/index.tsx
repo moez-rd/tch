@@ -60,9 +60,9 @@ export default function ModalCreateSeminarRegistration(props: Props) {
                   <Text size="sm" color="gray.6">
                     Lantai 7 Gedung Fasilkom Universitas Sriwijaya Palembang.
                   </Text>
-                  <Text weight={600} color="gray.6" fs="italic">
-                    Pendaftaran sudah penuh
-                  </Text>
+                  {/*<Text weight={600} color="gray.6" fs="italic">*/}
+                  {/*  Pendaftaran sudah penuh*/}
+                  {/*</Text>*/}
                 </Stack>
               </Flex>
             </Card>
