@@ -50,9 +50,9 @@ export default function ModalCreateSeminarRegistration(props: Props) {
       <Stack spacing="xs" align="start">
         <Radio.Group value={choice} onChange={setChoice}>
           <Stack>
-            <Card withBorder w="100%" bg="gray.2">
+            <Card withBorder w="100%">
               <Flex>
-                <Radio value="offline" disabled />
+                <Radio value="offline" />
                 <Stack spacing={4} pl="1rem">
                   <Text weight="500" size="lg" sx={{ lineHeight: '1rem' }}>
                     Offline
